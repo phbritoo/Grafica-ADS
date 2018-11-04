@@ -1,204 +1,125 @@
-<!doctype html>
-<html class="no-js" lang="pt-br">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<html lang="pt">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <link rel="icon" href="images/misc/favicon.png">
-  <link rel="stylesheet" href="../css/main.css" type="text/css">
-  <title>Nome do site</title>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Bem Vindo Five Quiz !</title>
+
+
+<style type="text/css">
+
+.pagina {
+
+margin: 0px;
+
+
+}
+
+</style>
+
+
+
+
+
+<!-- Bootstrap Core CSS -->
+    <link href="view/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="view/css/Form.css" rel="stylesheet">
+    
+      <!-- Custom Fonts -->
+    <link href="view/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="view/css/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="view/css/creative.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
+
 </head>
-
-<body>
-
-  <!--[if lte IE 9]><div class="alert-browser"><div class="center"><div class="txt"><strong>Seu navegador está desatualizado.</strong>Para uma melhor visualização do site atualize-o ou escolha outro navegador.</div><a href="http://outdatedbrowser.com/pt-br" target="_blank">Clique aqui</a></div></div><![endif]-->
-
-  <!-- cabeçalho -->
-  <header class="header">
-    <div class="container">
-
-      <h1 class="header__logo">Nome do site</h1>
-
-      <a href="tel:" class="header__phone">
-        <svg class="icon--phone">
-          <use xlink:href="images/svg/svg.svg#phone"></use>
-        </svg>
-        <span class="caption">Ligue agora:</span>
-        <span class="number">81 9999-9999</span>
-        <svg class="icon--arrow">
-          <use xlink:href="images/svg/svg.svg#arrow"></use>
-        </svg>
-      </a>
-
-    </div>
-  </header>
-
-  <main class="content">
-
-    <!-- destaque -->
-    <section class="featured">      
-
-      <div class="container">
-        <form action="#" method="post" class="featured__form" id="form">
-          <fieldset class="row">
-            <div class="col-sm-12">
-              <legend class="head">Título do formulário</legend>
-            </div>            
-            <div class="col-sm-4 col-md-12">
-              <input type="text" name="nome" id="nome" placeholder="Seu nome" class="form-control required">
+   <header>
+	<body>
+	
+		 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand page-scroll" >Five Quiz</a>
             </div>
-            <div class="col-sm-4 col-md-12">
-              <input type="email" name="email" id="email" placeholder="Seu email" class="form-control required">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="ExibirIndex">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="ExibirLogin">Login</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="ExibirCadastrarUsuario">Cadastre-se</a>
+                    </li>
+                    
+                </ul>
             </div>
-            <div class="col-sm-4 col-md-12">
-              <input type="tel" name="telefone" id="telefone" minlength="14" placeholder="Seu telefone" class="form-control telefone required">
-            </div>
-            <div class="col-sm-12">
-              <button type="submit" class="btn">Enviar</button>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-    </section>
-
-    <!-- linha um  -->
-    <section class="line-one">
-      <div class="container">
-
-        <h2 class="title">Título da seção</h2>
-        <h3 class="subtitle">Subtitulo da seção</h3>
-
-        <ul class="line-one__list row">
-
-          <li class="col-sm-3">
-            <div class="line-one__item">
-              <img src="images/svg/phone.svg" alt="" class="line-one__icon">
-              <div class="line-one__caption">
-                <strong>Lorem Ipsum</strong>
-                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              </div>
-            </div>
-          </li>
-
-          <li class="col-sm-3">
-            <div class="line-one__item">
-              <img src="images/svg/phone.svg" alt="" class="line-one__icon">
-              <div class="line-one__caption">
-                <strong>Lorem Ipsum</strong>
-                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              </div>
-            </div>
-          </li>
-
-          <li class="col-sm-3">
-            <div class="line-one__item">
-              <img src="images/svg/phone.svg" alt="" class="line-one__icon">
-              <div class="line-one__caption">
-                <strong>Lorem Ipsum</strong>
-                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              </div>
-            </div>
-          </li>
-
-          <li class="col-sm-3">
-            <div class="line-one__item">
-              <img src="images/svg/phone.svg" alt="" class="line-one__icon">
-              <div class="line-one__caption">
-                <strong>Lorem Ipsum</strong>
-                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              </div>
-            </div>
-          </li>
-
-        </ul>
-
-      </div>
-    </section>
-
-    <!-- linha dois -->
-    <section class="line-two">
-      <div class="container">
-
-        <h2 class="title">Título da seção</h2>
-        <h3 class="subtitle">Subtitulo da seção</h3>
-
-        <ul class="line-two__list row">
-
-          <li class="col-sm-6">
-            <div class="line-two__item">
-              <figure class="line-two__image">
-                <img src="http://via.placeholder.com/600x600" alt="Imagem contem uma foto">
-              </figure>
-            </div>
-          </li>
-
-          <li class="col-sm-6">
-            <div class="line-two__item">
-              <figure class="line-two__image">
-                <img src="http://via.placeholder.com/600x600" alt="Imagem contem uma foto">
-              </figure>
-            </div>
-          </li>
-
-        </ul>
-
-      </div>
-    </section>
-
-    <!-- linha três -->
-    <section class="line-three">
-      <div class="container">
-
-        <h2 class="title">Título da seção</h2>
-        <h3 class="subtitle">Subtitulo da seção</h3>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <figure class="line-three__image">
-              <img src="http://via.placeholder.com/600x350" alt="Imagem contem uma foto">
-            </figure>
-          </div>
-
-          <div class="col-sm-6">
-            <h4 class="line-three__caption">Lorem Ipsum</h4>
-            <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam sint eos quibusdam reiciendis quas dolor saepe
-              vitae, dolorum aut ea voluptatum, eligendi accusantium sequi vel nihil quisquam! Nam, rerum, ipsam.</p>
-            <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam sint eos quibusdam reiciendis quas dolor saepe
-              vitae, dolorum aut ea voluptatum, eligendi accusantium sequi vel nihil quisquam! Nam, rerum, ipsam.</p>
-          </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container-fluid -->
+    </nav> 
+    <br> <br>
+ <br>
+ 
+ <div class="panel-heading">
+	               <div class="panel-title text-center">
+	               		<h1 class="title">Pesquisar Usuário</h1>
+	               		<hr />
+	               	</div>
+	              
+	            </div> 
+	<table border='1' style='width: 100%;'>
+		<tr style='background-color: #E6E6E6; font-weight: bold;'>
+			<td> ID </td>
+			<td> NOME </td>
+			<td> EMAIL </td>
+			<td> AÇÕES </td>
+		</tr>
+	
+	</table>
 
-      </div>
-    </section>
+	
+	
 
-    <!-- localização -->
-    <section class="location">
-      <div class="col-md-5">
-        <address class="location__address">
-          <h3 class="location__head">Nome do lugar</h3>
-          <strong class="location__place">Estamos localizados na</strong>
-           <p class="location__text">
-            Lorem ipsum dolor sit amet n.999 <br>
-            Lorem ipsum
-           </p>
-        </address>
-      </div>
-      <div class="col-md-7 none">
-        <div class="location__mapa" id="mapa"></div>
-      </div>  
-    </section>
 
-  </main>
 
-  <footer class="footer">
-    <div class="footer__copy">Copyright</div>      
-  </footer>
-
-  <script src="../js/scripts.js"></script>
+</header>
 
 </body>
 
 </html>
+
+
+
+
+

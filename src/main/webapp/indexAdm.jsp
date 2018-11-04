@@ -21,6 +21,7 @@
       <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script> 
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script> 
 </head>
+
 <body id="page-top">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -32,7 +33,8 @@
                 </button>
                 
                 
-                <a class="navbar-brand page-scroll" href="#page-top" >FIVE QUIZ</a>
+                <a class="navbar-brand page-scroll" href="ExibirListarUsuario" >Listar Usuario</a>
+                <a class="navbar-brand page-scroll" href="ExibirCadastroPerguntas" >Cadastrar Perguntas</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

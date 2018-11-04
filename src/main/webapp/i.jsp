@@ -21,6 +21,7 @@
       <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script> 
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script> 
 </head>
+
 <body id="page-top">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -30,26 +31,24 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                
-                
-                <a class="navbar-brand page-scroll" href="#page-top" >FIVE QUIZ</a>
+                <a class="navbar-brand page-scroll" href="#page-top"> Gráfica Digital </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                   
-                                        
                     <li>
-                        <a class="page-scroll" > <b>Bem vindo,   ${usuarioLogado.nome}</b></a>
+                        <a class="page-scroll" href="<c:url value="ndex.jsp"></c:url>">Home</a>
                     </li>
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                     <li>
-                        <a class="page-scroll" href="logout"> Sair </a>
+                        <a class="page-scroll" href="ExibirLogin">Login</a>
                     </li>
-                    
-                    
-           
+                    <li>
+                        <a class="page-scroll" href="ExibirCadastrarUsuario">Cadastre-se</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Quem Somos</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -57,18 +56,62 @@
         <!-- /.container-fluid -->
     </nav>
 
+	<header>
+      
+        	<div class="container">
+				<div class="row main">
+					<div class="panel-heading">
+	               		<div class="panel-title text-center">
+	               			
+	               			<h1 class="title"> Login </h1>
+	               			<hr />
+	               		</div>
+	              
+	             	</div> 
+				<div class="main-login main-center">
+		
+			<div style="color: red;" align="center"> <h3> ${msg} </h3> </div>
+			
+		<p>
+		
+				<form class="form-horizontal" method="post" action="efetuarLogin" id="Form1">
 
 
-<header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Five Quiz</h1>
-                <hr>
-                <p> Um quiz de programação onde você se diverte</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll"> Jogar </a>
-                            </div>
-        </div>
-    </header>
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">E-mail</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
+									<input type="email" class="form-control" name="email" id="email"  placeholder="Digite seu E-mail"required="required"autofocus=""/>
+								</div>
+							</div>
+						</div>
 
+						
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Senha</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="senha" id="senha"  placeholder="Digite sua senha" required="required"autofocus=""/>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="form-group ">
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button"> Entrar </button>
+						</div>
+						
+
+				</form>
+			
+				</div>
+			</div>
+		</div>			
+
+	</header>
+	
 </body>
 </html>

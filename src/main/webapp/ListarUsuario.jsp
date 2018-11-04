@@ -21,6 +21,7 @@
       <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script> 
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script> 
 </head>
+
 <body id="page-top">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -32,7 +33,8 @@
                 </button>
                 
                 
-                <a class="navbar-brand page-scroll" href="#page-top" >FIVE QUIZ</a>
+                <a class="navbar-brand page-scroll" href="ExibirListarUsuario" >Listar Usuario</a>
+                <a class="navbar-brand page-scroll" href="ExibirCadastroPerguntas" >Cadastrar Perguntas</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -59,16 +61,35 @@
 
 
 
-<header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Five Quiz</h1>
-                <hr>
-                <p> Um quiz de programação onde você se diverte</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll"> Jogar </a>
-                            </div>
-        </div>
-    </header>
+	<hr>
+	<h3>Listar Usuarios</h3>
+	<hr>
+	
+	<table border='1' style='width: 100%;'>
+		<tr style='background-color: #E6E6E6; font-weight: bold;'>
+			<td> ID </td>
+			<td> NOME </td>
+			<td> EMAIL </td>
+			<td> SENHA </td>
+			<td> TIPO USUARIO </td>
+		</tr>
+
+	<c:forEach var="user" items="${ExibirListarUsuario}">
+		<tr>
+	    	<td> ${user.id} </td>
+	    	<td> ${user.nome} </td>
+	    	<td> ${user.email} </td>
+	    	<td> ${user.senha} </td>
+	    	<td> ${user.tipoUsuarioFk} </td>
+	    	<td>
+	    		<a href="#?id=${produto.id}">Editar</a>
+	    		<a href="#?id=${produto.id}">Remover</a>
+	    	</td>
+	    </tr>
+	</c:forEach>
+	</table>
+
+
 
 </body>
 </html>

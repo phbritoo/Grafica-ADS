@@ -21,6 +21,7 @@
       <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script> 
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script> 
 </head>
+
 <body id="page-top">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -30,26 +31,24 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                
-                
-                <a class="navbar-brand page-scroll" href="#page-top" >FIVE QUIZ</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Five Quiz</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                   
-                                        
                     <li>
-                        <a class="page-scroll" > <b>Bem vindo,   ${usuarioLogado.nome}</b></a>
+                        <a class="page-scroll" href="ExibirIndex">Home</a>
                     </li>
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                     <li>
-                        <a class="page-scroll" href="logout"> Sair </a>
+                        <a class="page-scroll" href="ExibirLogin">Login</a>
                     </li>
-                    
-                    
-           
+                    <li>
+                        <a class="page-scroll" href="ExibirCadastrarUsuario">Cadastre-se</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Quem Somos</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -57,18 +56,33 @@
         <!-- /.container-fluid -->
     </nav>
 
-
-
-<header>
+    <header>
         <div class="header-content">
             <div class="header-content-inner">
                 <h1 id="homeHeading">Five Quiz</h1>
                 <hr>
-                <p> Um quiz de programação onde você se diverte</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll"> Jogar </a>
+                <p>Um quiz de programação onde você se diverte</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Jogar</a>
                             </div>
         </div>
     </header>
 
+   
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/creative.min.js"></script>
+
 </body>
+
 </html>
