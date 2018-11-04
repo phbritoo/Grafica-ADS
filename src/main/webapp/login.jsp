@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Página Inicial</title>
+<title>Tela de Login</title>
 <!-- Bootstrap Core CSS -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/Form.css" rel="stylesheet">
@@ -30,6 +30,7 @@
 </head>
 
 <body id="page-top">
+
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -42,44 +43,66 @@
 			<a class="navbar-brand page-scroll" href="#page-top"> Gráfica
 				Digital </a>
 		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a class="page-scroll"
-					href="<c:url value="listarUsuarios.jsp"></c:url>">Listar
-						Usuários</a></li>
+					href="<c:url value="index.jsp"></c:url>">Home</a></li>
 				<li><a class="page-scroll"
-					href="<c:url value="listarServico.jsp"></c:url>">Listar
-						Serviços</a></li>
-				<li><a class="page-scroll"
-					href="<c:url value="cadastroFuncionario.jsp"></c:url>">Cadastrar
-						Funcionario</a></li>
-				<li><a class="page-scroll"
-					href="<c:url value="cadastroServico.jsp"></c:url>">Cadastrar
-						Serviço</a></li>
+					href="<c:url value="login.jsp"></c:url>">Login</a></li>
 			</ul>
 		</div>
 	</div>
 	</nav>
 	<header>
-	<div class="header-content">
-		<div class="header-content-inner">
-			<h1 id="homeHeading">Grafica Digital</h1>
+	<div class="container">
+		<div class="row main">
+			<div class="panel-heading">
+				<div class="panel-title text-center">
 
+					<h1 class="title">Login</h1>
+					<hr />
+				</div>
+
+			</div>
+			<div class="main-login main-center">
+				<p>
+				<form class="form-horizontal" method="post"
+					action="<c:url value="paginaPrincipal.jsp"></c:url>" id="Form1">
+					<div class="form-group">
+						<label for="email" class="cols-sm-2 control-label">E-mail</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span> <input
+									type="email" class="form-control" name="email" id="email"
+									placeholder="Digite seu E-mail" required="required"
+									autofocus="" />
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="password" class="cols-sm-2 control-label">Senha</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-lock" aria-hidden="true"></i></span> <input
+									type="password" class="form-control" name="senha" id="senha"
+									placeholder="Digite sua senha" required="required" autofocus="" />
+							</div>
+						</div>
+					</div>
+					<div class="form-group ">
+						<button type="submit"
+							class="btn btn-primary btn-lg btn-block login-button">
+							Entrar</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 	</header>
-	<!-- jQuery -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!-- Plugin JavaScript -->
-	<script
-		src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-	<!-- Theme JavaScript -->
-	<script src="js/creative.min.js"></script>
 </body>
 </html>

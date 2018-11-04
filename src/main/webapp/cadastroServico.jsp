@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Página Inicial</title>
+<title>Cadastro de Funcionario</title>
 <!-- Bootstrap Core CSS -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/Form.css" rel="stylesheet">
@@ -42,6 +41,8 @@
 			<a class="navbar-brand page-scroll" href="#page-top"> Gráfica
 				Digital </a>
 		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
@@ -62,24 +63,51 @@
 	</div>
 	</nav>
 	<header>
-	<div class="header-content">
-		<div class="header-content-inner">
-			<h1 id="homeHeading">Grafica Digital</h1>
+	<div class="container">
+		<div class="row main">
+			<div class="panel-heading">
+				<div class="panel-title text-center">
+					<h1 class="title">Cadastro de Serviço</h1>
+					<hr />
+				</div>
 
+			</div>
+			<div class="main-login main-center">
+				<form class="form-horizontal" method="post"
+					action="<c:url value="xxxxxxx"></c:url>" id="Form1">
+
+					<div class="form-group">
+						<label for="name" class="cols-sm-2 control-label">Servico</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-user" aria-hidden="true"></i></span> <input
+									type="text" class="form-control" name="servico" id="nome"
+									placeholder="Digite o nome do servico" required="required" autofocus="" />
+							</div>
+						</div>
+					</div>
+
+					<label for="" class="cols-sm-2 control-label">Servico</label> <select
+						name="disciplina" id="disciplina"
+						class="btn btn-primary btn-lg btn-block login-button">
+
+						<option value="">Selecione</option>
+					</select> </br> <label for="" class="cols-sm-2 control-label">Funcionario</label>
+					<select name="nivel" id="nivel"
+						class="btn btn-primary btn-lg btn-block login-button">
+
+						<option value="">Selecione</option>
+					</select> </br>
+
+					<div class="form-group ">
+						<button type="submit"
+							class="btn btn-primary btn-lg btn-block login-button">Cadastrar Serviço</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 	</header>
-	<!-- jQuery -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!-- Plugin JavaScript -->
-	<script
-		src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-	<!-- Theme JavaScript -->
-	<script src="js/creative.min.js"></script>
 </body>
 </html>
