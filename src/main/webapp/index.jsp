@@ -6,27 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Página Inicial</title>
+<title>Gráfica Digital</title>
 <!-- Bootstrap Core CSS -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/Form.css" rel="stylesheet">
-<!-- Custom Fonts -->
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link
-	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-	rel='stylesheet' type='text/css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
-	rel='stylesheet' type='text/css'>
-<!-- Plugin CSS -->
-<link href="css/magnific-popup.css" rel="stylesheet">
 <!-- Theme CSS -->
 <link href="css/creative.min.css" rel="stylesheet">
-<script type="text/javascript"
-	src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script>
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
 </head>
+
 <body id="page-top">
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
@@ -48,7 +35,7 @@
 					<li><a class="page-scroll"
 						href="<c:url value="index.jsp"></c:url>">Home</a></li>
 					<li><a class="page-scroll"
-						href="<c:url value="login.jsp"></c:url>">Login</a></li>
+						href="<c:url value="jsp/login.jsp"></c:url>">Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -59,7 +46,7 @@
 			<h1 id="homeHeading">Bem Vindo</h1>
 			<hr>
 			<p>Gráfica Digital</p>
-			<a href="<c:url value="login.jsp"></c:url>" class="btn btn-primary btn-xl page-scroll">
+			<a href="<c:url value="jsp/login.jsp"></c:url>" class="btn btn-primary btn-xl page-scroll">
 				Acessar </a>
 		</div>
 	</div>
