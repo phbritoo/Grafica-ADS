@@ -19,7 +19,7 @@
 .linha {
 	text-align: center;
 	font-size: 20px;
-	color: yellow;
+	color: #2E64FE;
 	font-size: 20px;
 }
 
