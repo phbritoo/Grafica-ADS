@@ -11,6 +11,6 @@ public class Cliente extends Pessoa{
 	@OneToMany(mappedBy="codigoServico")
 	private List<Servico> servicos;
 
-	teste
+	teste2
 
 }
