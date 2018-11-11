@@ -1,5 +1,7 @@
 package projeto.model.dao;
 
-public class ServicoDAO {
+import projeto.model.entity.Servico;
+
+public class ServicoDAO extends AbstractDAO<Servico>{
 
 }

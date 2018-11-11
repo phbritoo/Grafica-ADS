@@ -2,16 +2,19 @@ package projeto.model.Fachada;
 
 import projeto.model.dao.ClienteDAO;
 import projeto.model.dao.FuncionarioDAO;
+import projeto.model.dao.OrdemServicoDAO;
 import projeto.model.dao.ServicoDAO;
 import projeto.model.entity.Cliente;
 import projeto.model.entity.Funcionario;
+import projeto.model.entity.OrdemServico;
 import projeto.model.entity.Servico;
 
 public class Fachada implements IFachada {
 	
 	private ClienteDAO controladorCliente;
 	private FuncionarioDAO controladorFuncionario;
-	private ServicoDAO controladorServico;	
+	private ServicoDAO controladorServico;
+	private OrdemServicoDAO controladorOrdemServico;
 	
 	private static IFachada fachadaInstanciada;
 	
@@ -24,12 +27,10 @@ public class Fachada implements IFachada {
 
 	public void InserirCliente(Cliente cliente) {
 		controladorCliente.inserir(cliente);
-
 	}
 
 	public void alteraCliente(Cliente cliente) {
 		controladorCliente.alterar(cliente);
-
 	}
 
 	public void excluirCliente(Cliente cliente) {
@@ -42,43 +43,58 @@ public class Fachada implements IFachada {
 	}
 
 	public void InserirFuncionario(Funcionario funcionario) {
-		// TODO Auto-generated method stub
-
+		controladorFuncionario.inserir(funcionario);
 	}
 
 	public void alteraFuncionario(Funcionario funcionario) {
 		// TODO Auto-generated method stub
-
+		controladorFuncionario.alterar(funcionario);
 	}
 
-	public void excluirFuncionario(Funcionario funcionario) {
-		// TODO Auto-generated method stub
-
+	public void excluirFuncionario(String cpf) {
+		controladorFuncionario.excluirPorChavePrimaria(Funcionario.class, cpf);;
 	}
 
 	public Funcionario ProcurarFuncionario(String cpf) {
-		// TODO Auto-generated method stub
-		return null;
+		return controladorFuncionario.consultarPorChavePrimaria(Funcionario.class, cpf);
 	}
 
 	public void InserirServico(Servico servico) {
-		// TODO Auto-generated method stub
-
+		controladorServico.inserir(servico);
 	}
 
 	public void alteraServico(Servico servico) {
-		// TODO Auto-generated method stub
-
+		controladorServico.alterar(servico);
 	}
 
-	public void excluirServico(Servico servico) {	
-		// TODO Auto-generated method stub
-
+	public void excluirServico(String codigoServico) {	
+		controladorServico.excluirPorChavePrimaria(Servico.class, codigoServico);
 	}
 
-	public Funcionario ProcurarServico(String cpf) {
-		// TODO Auto-generated method stub
-		return null;
+	public Servico ProcurarServico(String codigoServico) {
+		return controladorServico.consultarPorChavePrimaria(Servico.class, codigoServico);
+	}
+
+	public void InserirOrdemServico(OrdemServico ordemServico) {
+		controladorOrdemServico.inserir(ordemServico);
+		
+	}
+
+	public void alteraOrdemServico(OrdemServico ordemServico) {
+		controladorOrdemServico.alterar(ordemServico);
+	}
+
+	public void excluirOrdemServico(String codigoOrdemServico) {
+		controladorOrdemServico.excluirPorChavePrimaria(OrdemServico.class, codigoOrdemServico);
+		
+	}
+
+	public OrdemServico ProcurarOrdemServico(String codigoOrdemServico) {
+		return controladorOrdemServico.consultarPorChavePrimaria(OrdemServico.class, codigoOrdemServico);
+	}
+	
+	public double valorTotalOrdemServico(OrdemServico ordemServico) {
+		return controladorOrdemServico.valorTotalOrdemServico(ordemServico);
 	}
 
 }
