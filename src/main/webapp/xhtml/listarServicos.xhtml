@@ -1,0 +1,35 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de uma nova Pessoa</title>
+</h:head>
+<h:body>
+
+	<h1>Listar Serviços</h1>
+
+
+	<h:dataTable value="#{pessoaMB.listaPessoas}" var="pessoa" border="1">
+		<h:column>
+			<f:facet name="header">Cod.</f:facet>
+				#{servico.codigoServico}
+			</h:column>
+
+		<h:column>
+			<f:facet name="header">Serviço</f:facet>
+				#{servico.tipoServico}
+			</h:column>
+
+		<h:column>
+			<f:facet name="header">Valor</f:facet>
+				#{servico.valor}
+			</h:column>
+	</h:dataTable>
+	
+	<br></br>
+		<h:commandButton value="Voltar" action="#{pessoaMB.inserir}"></h:commandButton>
+
+</h:body>
+</html>
