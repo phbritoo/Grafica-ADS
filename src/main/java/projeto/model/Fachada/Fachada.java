@@ -23,23 +23,22 @@ public class Fachada implements IFachada {
 	}
 
 	public void InserirCliente(Cliente cliente) {
-		// TODO Auto-generated method stub
+		controladorCliente.inserir(cliente);
 
 	}
 
 	public void alteraCliente(Cliente cliente) {
-		// TODO Auto-generated method stub
+		controladorCliente.alterar(cliente);
 
 	}
 
 	public void excluirCliente(Cliente cliente) {
-		// TODO Auto-generated method stub
+		controladorCliente.excluirPorObjeto(cliente);
 
 	}
 
 	public Cliente ProcurarCliente(String cpf) {
-		// TODO Auto-generated method stub
-		return null;
+		return controladorCliente.consultarPorChavePrimaria(Cliente.class, cpf);
 	}
 
 	public void InserirFuncionario(Funcionario funcionario) {
