@@ -1,0 +1,64 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+
+	<f:include src="menu.xhtml" />
+	
+	<h1>Listar Clientes</h1>
+
+
+	<h:dataTable value="#{pessoaMB.listaPessoas}" var="pessoa" border="1">
+		<h:column>
+			<f:facet name="header">CPF</f:facet>
+				#{cliente.cPF}
+			</h:column>
+
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+				#{cliente.Nome}
+			</h:column>
+
+		<h:column>
+			<f:facet name="header">Data de Nascimento</f:facet>
+				#{cliente.dataNascimento}
+			</h:column>
+			
+		<h:column>
+			<f:facet name="header">Logradouro</f:facet>
+				#{cliente.Logradouro}
+			</h:column>
+		
+		<h:column>
+			<f:facet name="header">Numero</f:facet>
+				#{cliente.Numero}
+			</h:column>	
+			
+		<h:column>
+			<f:facet name="header">CEP</f:facet>
+				#{cliente.cEP}
+			</h:column>	
+			
+		<h:column>
+			<f:facet name="header">Cidade</f:facet>
+				#{cliente.Cidade}
+			</h:column>	
+			
+		<h:column>
+			<f:facet name="header">Bairro</f:facet>
+				#{cliente.Bairro}
+			</h:column>		
+				
+	</h:dataTable>
+	
+	<br> </br>
+			
+		<h:commandLink		value="Inserir"		action="menu.xhtml"></h:commandLink>
+		<br></br>
+		<br></br>
+		<h:commandButton	value="Remover"		action="remover"></h:commandButton>
+
+</h:body>
+</html>

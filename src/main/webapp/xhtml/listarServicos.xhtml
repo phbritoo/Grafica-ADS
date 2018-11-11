@@ -7,6 +7,7 @@
 	<title>Cadastro de uma nova Pessoa</title>
 </h:head>
 <h:body>
+<f:include src="menu.xhtml" />
 
 	<h1>Listar Serviços</h1>
 
@@ -28,8 +29,11 @@
 			</h:column>
 	</h:dataTable>
 	
-	<br></br>
-		<h:commandButton value="Voltar" action="#{pessoaMB.inserir}"></h:commandButton>
-
+	<br> </br>
+			
+		<h:commandLink		value="Inserir"		action="menu.xhtml"></h:commandLink>
+		<br></br>
+		<br></br>
+		<h:commandButton	value="Remover"		action="remover"></h:commandButton>
 </h:body>
 </html>
