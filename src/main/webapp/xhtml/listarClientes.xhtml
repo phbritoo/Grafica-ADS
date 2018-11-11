@@ -1,7 +1,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/facelets"
+xmlns:c="http://xmlns.jcp.org/jsf/core">
 
 <h:body>
 
@@ -12,42 +13,42 @@
 
 	<h:dataTable value="#{pessoaMB.listaPessoas}" var="pessoa" border="1">
 		<h:column>
-			<f:facet name="header">CPF</f:facet>
+			<c:facet name="header">CPF</c:facet>
 				#{cliente.cPF}
 			</h:column>
 
 		<h:column>
-			<f:facet name="header">Nome</f:facet>
+			<c:facet name="header">Nome</c:facet>
 				#{cliente.Nome}
 			</h:column>
 
 		<h:column>
-			<f:facet name="header">Data de Nascimento</f:facet>
+			<c:facet name="header">Data de Nascimento</c:facet>
 				#{cliente.dataNascimento}
 			</h:column>
 			
 		<h:column>
-			<f:facet name="header">Logradouro</f:facet>
+			<c:facet name="header">Logradouro</c:facet>
 				#{cliente.Logradouro}
 			</h:column>
 		
 		<h:column>
-			<f:facet name="header">Numero</f:facet>
+			<c:facet name="header">Numero</c:facet>
 				#{cliente.Numero}
 			</h:column>	
 			
 		<h:column>
-			<f:facet name="header">CEP</f:facet>
+			<c:facet name="header">CEP</c:facet>
 				#{cliente.cEP}
 			</h:column>	
 			
 		<h:column>
-			<f:facet name="header">Cidade</f:facet>
+			<c:facet name="header">Cidade</c:facet>
 				#{cliente.Cidade}
 			</h:column>	
 			
 		<h:column>
-			<f:facet name="header">Bairro</f:facet>
+			<c:facet name="header">Bairro</c:facet>
 				#{cliente.Bairro}
 			</h:column>		
 				
