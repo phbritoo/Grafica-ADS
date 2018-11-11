@@ -1,0 +1,27 @@
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Cadastro de Serviço</title>
+	</h:head>
+	<h:body>
+	<f:include src="menu.xhtml" />
+		
+		<h1>Cadastro de Serviço</h1>
+		<h:form>
+			<h:panelGrid columns="2">
+				Vendedor: <h:selectOneMenu value="#{alunoManagedBean.escolaridade}"></h:selectOneMenu>
+				<br></br>
+				Cliente: <h:selectOneMenu value="#{alunoManagedBean.escolaridade}"></h:selectOneMenu>
+				<br></br>
+				
+		
+	
+				Botão:	<h:commandButton	value="Inserir"		action="#{pessoaMB.inserir}"></h:commandButton>
+				Link:	<h:commandLink		value="Inserir"		action="#{pessoaMB.inserir}"></h:commandLink>
+			</h:panelGrid>
+		</h:form>
+		
+	</h:body>
+</html>
