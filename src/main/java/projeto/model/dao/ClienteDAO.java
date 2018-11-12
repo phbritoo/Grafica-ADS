@@ -5,8 +5,8 @@ import projeto.model.entity.ValidaCPF;
 import projeto.model.exception.CampoNaoInformadoException;
 import projeto.model.exception.CpfInvalidoException;
 
-public class ClienteDAO extends AbstractDAO<Cliente>{
-	
+public class ClienteDAO extends AbstractDAO<Cliente> {
+
 	public void inserir(Cliente pEntidade) {
 		if (pEntidade.getCPF().isEmpty()){
 			try {
@@ -16,7 +16,7 @@ public class ClienteDAO extends AbstractDAO<Cliente>{
 				e.printStackTrace();
 			}
 		}
-		if(ValidaCPF.isCPF(pEntidade.getCPF())) {
+		else if(ValidaCPF.isCPF(pEntidade.getCPF())) {
 			try {
 				throw new CpfInvalidoException();
 			} catch (CpfInvalidoException e) {
@@ -24,6 +24,16 @@ public class ClienteDAO extends AbstractDAO<Cliente>{
 				e.printStackTrace();
 			}
 		}
+		if(pEntidade.getNome().isEmpty()) {
+			try {
+				throw new CampoNaoInformadoException("NOME");
+			} catch (CampoNaoInformadoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
 		super.inserir(pEntidade);
 	}
 
