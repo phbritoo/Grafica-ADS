@@ -18,6 +18,14 @@ public class Fachada implements IFachada {
 	
 	private static IFachada fachadaInstanciada;
 	
+	private Fachada(){
+		
+		controladorCliente = new ClienteDAO();
+		controladorFuncionario = new FuncionarioDAO();
+		controladorServico = new ServicoDAO();
+		controladorOrdemServico = new OrdemServicoDAO();
+	}
+	
 	public static IFachada getFachada(){ 
 		if(fachadaInstanciada == null){
 			fachadaInstanciada = new Fachada(); 
