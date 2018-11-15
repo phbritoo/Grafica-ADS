@@ -10,34 +10,34 @@
 	<f:include src="menu.xhtml" />
 		<center>
 		<h1>Cadastro de Funcionários</h1>
-		<h:form>
+		<h:form method="post">
 			<h:panelGrid columns="2">
-				Nome <h:inputText value="#{pessoaMB.pessoa.nome}"></h:inputText>
+				Nome <h:inputText value="#{funcionarioManagedBean.funcionario.nome}"></h:inputText>
 				<br></br>
-				CPF: <h:inputText value="#{pessoaMB.pessoa.cpf}"></h:inputText>
+				CPF: <h:inputText value="#{funcionarioManagedBean.funcionario.CPF}"></h:inputText>
 				<br></br>
-				Data de Nascimento: <h:inputText value="#{pessoaMB.pessoa.cpf}"></h:inputText>
+				Data de Nascimento: <h:inputText value="#{funcionarioManagedBean.funcionario.dataNascimento}"></h:inputText>
 				<br></br>
-				Cargo do Funcionario: <h:inputText value="#{pessoaMB.pessoa.cpf}"></h:inputText>
+				Cargo do Funcionario: <h:inputText value="#{funcionarioManagedBean.funcionario.cargo}"></h:inputText>
 				<br></br>
-				Salario: <h:inputText value="#{pessoaMB.pessoa.cpf}"></h:inputText>
+				Salario: <h:inputText value="#{funcionarioManagedBean.funcionario.salario}"></h:inputText>
 				<br></br>
-				Senha: <h:inputSecret value="#{pessoaMB.pessoa.cpf}"></h:inputSecret>
+				Senha: <h:inputSecret value="#{funcionarioManagedBean.funcionario.senha}"></h:inputSecret>
 				<br></br>
-				Logradouro: <h:inputText value="#{pessoaMB.pessoa.cpf}"></h:inputText>
+				<!-- Logradouro: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.logradouro}"></h:inputText>
 				<br></br>
-				Numero: <h:inputText value="#{pessoaMB.pessoa.cpf}"></h:inputText>
+				Numero: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.numero}"></h:inputText>
 				<br></br>
-				Bairo: <h:inputText value="#{pessoaMB.pessoa.cpf}"></h:inputText>
+				Bairo: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.bairro}"></h:inputText>
 				<br></br>
-				Cidade: <h:inputText value="#{pessoaMB.pessoa.cpf}"></h:inputText>
+				Cidade: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.cidade}"></h:inputText>
 				<br></br>
-				CEP: <h:inputText value="#{pessoaMB.pessoa.cpf}"></h:inputText>
-				<br></br>
+				CEP: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.CEP}"></h:inputText>
+				<br></br> -->
 				
 				
 				<br></br>
-				<h:commandButton	value="Cadastrar Funcionario"		action="#{pessoaMB.inserir}"></h:commandButton>
+				<h:commandButton	value="Cadastrar Funcionario"		action="#{funcionarioManagedBean.inserir}"></h:commandButton>
 			</h:panelGrid>
 		</h:form>
 		</center>

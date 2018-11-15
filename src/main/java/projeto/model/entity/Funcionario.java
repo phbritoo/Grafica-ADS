@@ -11,6 +11,17 @@ public class Funcionario extends Pessoa{
 	@Column
 	private Float salario;
 	
+	@Column
+	private String senha;
+	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	@Enumerated(EnumType.ORDINAL)
 	private Cargo cargo;
 
