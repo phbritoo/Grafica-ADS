@@ -67,11 +67,4 @@ public class FuncionarioManagedBean {
 		return "consultar";
 		
 	}
-
-//	public Collection<Funcionario> getColecaoFuncionarios() {
-//		if (this.aColecaoFuncionarios == null) {
-//			this.consultarGeral();
-//		}
-//		return aColecaoFuncionarios;
-//	}
 }

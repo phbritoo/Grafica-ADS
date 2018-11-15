@@ -43,8 +43,8 @@ public class Fachada implements IFachada {
 		controladorCliente.alterar(cliente);
 	}
 
-	public void excluirCliente(Cliente cliente) {
-		controladorCliente.excluirPorObjeto(cliente);
+	public void excluirCliente(String cpf) {
+		controladorCliente.excluirPorChavePrimaria(Cliente.class, cpf);
 
 	}
 
@@ -66,7 +66,7 @@ public class Fachada implements IFachada {
 	}
 
 	public void excluirFuncionario(String cpf) {
-		controladorFuncionario.excluirPorChavePrimaria(Funcionario.class, cpf);;
+		controladorFuncionario.excluirPorChavePrimaria(Funcionario.class, cpf);
 	}
 
 	public Funcionario ProcurarFuncionario(String cpf) {
@@ -85,11 +85,11 @@ public class Fachada implements IFachada {
 		controladorServico.alterar(servico);
 	}
 
-	public void excluirServico(String codigoServico) {	
+	public void excluirServico(int codigoServico) {	
 		controladorServico.excluirPorChavePrimaria(Servico.class, codigoServico);
 	}
 
-	public Servico ProcurarServico(String codigoServico) {
+	public Servico ProcurarServico(int codigoServico) {
 		return controladorServico.consultarPorChavePrimaria(Servico.class, codigoServico);
 	}
 	
@@ -106,12 +106,12 @@ public class Fachada implements IFachada {
 		controladorOrdemServico.alterar(ordemServico);
 	}
 
-	public void excluirOrdemServico(String codigoOrdemServico) {
+	public void excluirOrdemServico(int codigoOrdemServico) {
 		controladorOrdemServico.excluirPorChavePrimaria(OrdemServico.class, codigoOrdemServico);
 		
 	}
 
-	public OrdemServico ProcurarOrdemServico(String codigoOrdemServico) {
+	public OrdemServico ProcurarOrdemServico(int codigoOrdemServico) {
 		return controladorOrdemServico.consultarPorChavePrimaria(OrdemServico.class, codigoOrdemServico);
 	}
 	

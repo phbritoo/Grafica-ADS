@@ -13,7 +13,7 @@ public interface IFachada {
 
 	void alteraCliente(Cliente cliente);
 
-	void excluirCliente(Cliente cliente);
+	void excluirCliente(String cpf);
 
 	Cliente ProcurarCliente(String cpf);
 	
@@ -33,9 +33,9 @@ public interface IFachada {
 
 	void alteraServico(Servico servico);
 
-	void excluirServico(String codigoServico);
+	void excluirServico(int codigoServico);
 
-	Servico ProcurarServico(String codigoServico);
+	Servico ProcurarServico(int codigoServico);
 	
 	List<Servico> ConsultarServicos();
 	
@@ -43,9 +43,9 @@ public interface IFachada {
 
 	void alteraOrdemServico(OrdemServico ordemServico);
 
-	void excluirOrdemServico(String codigoOrdemServico);
+	void excluirOrdemServico(int codigoOrdemServico);
 
-	OrdemServico ProcurarOrdemServico(String codigoOrdemServico);
+	OrdemServico ProcurarOrdemServico(int codigoOrdemServico);
 	
 	double valorTotalOrdemServico(OrdemServico ordemServico);
 	

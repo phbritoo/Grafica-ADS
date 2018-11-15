@@ -24,7 +24,7 @@ public abstract class Pessoa implements Entidade, Serializable {
 	private String nome;
 	
 	@Column
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 	
 	@Embedded

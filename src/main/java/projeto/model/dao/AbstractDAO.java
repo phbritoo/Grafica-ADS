@@ -72,7 +72,6 @@ public abstract class AbstractDAO<T> implements InterfaceDAO<T>{
 		
 	}
 
-
 	public void excluirPorObjeto(T entidade) {
 		excluirPorObjeto(entidade, UtilJPA.getEntityManager(), true);
 
