@@ -16,5 +16,14 @@ facesconfig_2_2.xsd"
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+		<navigation-rule>
+		<from-view-id>index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>entrar</from-outcome>
+			<to-view-id>/xhtml/menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 </faces-config>
 
