@@ -8,7 +8,7 @@
 	</h:head>
 	<h:body>
 	<f:include src="menu.xhtml" />
-		
+		<center>
 		<h1>Cadastro de Serviço</h1>
 		<h:form>
 			<h:panelGrid columns="2">
@@ -16,13 +16,9 @@
 				<br></br>
 				Cliente: <h:selectOneMenu value="#{alunoManagedBean.escolaridade}"></h:selectOneMenu>
 				<br></br>
-				
-		
-	
-				Botão:	<h:commandButton	value="Inserir"		action="#{pessoaMB.inserir}"></h:commandButton>
-				Link:	<h:commandLink		value="Inserir"		action="#{pessoaMB.inserir}"></h:commandLink>
+				<h:commandButton	value="Cadastrar OS"		action="#{pessoaMB.inserir}"></h:commandButton>
 			</h:panelGrid>
 		</h:form>
-		
+		</center>
 	</h:body>
 </html>

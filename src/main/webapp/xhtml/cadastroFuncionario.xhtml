@@ -8,7 +8,7 @@
 	</h:head>
 	<h:body>
 	<f:include src="menu.xhtml" />
-		
+		<center>
 		<h1>Cadastro de Funcionários</h1>
 		<h:form>
 			<h:panelGrid columns="2">
@@ -22,16 +22,12 @@
 				<br></br>
 				Cargo: <h:selectOneMenu value="#{alunoManagedBean.escolaridade}"></h:selectOneMenu>
 				<br></br>
-				Data de Nascimento: 
-				<h:inputText value="#{pessoaMB.pessoa.dataNascimento}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</h:inputText>
+				
 				<br></br>
-				Botão:	<h:commandButton	value="Inserir"		action="#{pessoaMB.inserir}"></h:commandButton>
-				Link:	<h:commandLink		value="listar Funcionários"		action="#{pessoaMB.inserir}"></h:commandLink>
+				<h:commandButton	value="Cadastrar Funcionario"		action="#{pessoaMB.inserir}"></h:commandButton>
 			</h:panelGrid>
 		</h:form>
-		
+		</center>
 		
 	</h:body>
 </html>

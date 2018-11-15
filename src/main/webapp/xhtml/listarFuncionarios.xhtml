@@ -8,7 +8,7 @@ xmlns:c="http://xmlns.jcp.org/jsf/core">
 	</h:head>
 	<h:body>
 		<f:include src="menu.xhtml" />
-		
+		<center>
 		<h2>Listar Funcionarios Cadastrados</h2>
 		<h:dataTable value="#{funcionarioMB.listaFuncionario}" var="funcionario" border="1">
 			<h:column>
@@ -65,6 +65,6 @@ xmlns:c="http://xmlns.jcp.org/jsf/core">
 		<br></br>
 		<h:commandButton	value="Remover"		action="remover"></h:commandButton>
 		
-		
+		</center>
 	</h:body>
 </html>
