@@ -1,41 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<head>
-  <title><ui:insert name="title">Default title</ui:insert></title>
-</head>
+	xmlns:c="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de Funcionários</title>
+</h:head>
+<h:body>
+	<f:include src="menu.xhtml" />
+	<center>
+		<h1>Cadastro de Funcionários</h1>
+		<h:form method="post">
+			<h:panelGrid columns="2">
+				Nome <h:inputText value="#{funcionarioManagedBean.funcionario.nome}"></h:inputText>
+				<br></br>
+				CPF: <h:inputText value="#{funcionarioManagedBean.funcionario.CPF}"></h:inputText>
+				<br></br>
+				Data de Nascimento: <h:inputText
+					value="#{funcionarioManagedBean.funcionario.dataNascimento}"></h:inputText>
+				<br></br>
+				 Logradouro: <h:inputText
+					value="#{funcionarioManagedBean.funcionario.endereco.logradouro}"></h:inputText>
+				<br></br>
+				Numero: <h:inputText
+					value="#{funcionarioManagedBean.funcionario.endereco.numero}"></h:inputText>
+				<br></br>
+				Bairo: <h:inputText
+					value="#{funcionarioManagedBean.funcionario.endereco.bairro}"></h:inputText>
+				<br></br>
+				Cidade: <h:inputText
+					value="#{funcionarioManagedBean.funcionario.endereco.cidade}"></h:inputText>
+				<br></br>
+				CEP: <h:inputText
+					value="#{funcionarioManagedBean.funcionario.endereco.CEP}"></h:inputText>
+				<br></br> -->
+				
+				
+				<br></br>
+				<h:commandButton value="Cadastrar Cliente"
+					action="#{clienteManagedBean.inserir}"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</center>
 
-<body>
-<ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
-
-<div id="header">
-    <ui:insert name="header">
-    	Header area.  See comments below this line in the source.
-    	<!--  include your header file or uncomment the include below and create header.xhtml in this directory -->
-    	<!-- <ui:include src="header.xhtml"/> -->
-    </ui:insert>
-</div>
-
-
-<div id="content">
-  <ui:insert name="content">
-    	Content area.  See comments below this line in the source.
-    	<!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
-	  	<!-- <div> -->
-    	<!-- <ui:include src="content.xhtml"/> -->  
-    	<!-- </div> -->
-  </ui:insert>
-</div>
-
-<div id="footer">
-  <ui:insert name="footer">
-    	Footer area.  See comments below this line in the source.
-    	<!--  include your header file or uncomment the include below and create footer.xhtml in this directory -->
-		<!--<ui:include src="footer.xhtml"/>  -->
-  </ui:insert>
-</div>
-
-</body>
-
+</h:body>
 </html>
