@@ -1,5 +1,8 @@
 package projeto.model.dao;
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import projeto.model.entity.Entidade;
 
@@ -147,6 +150,20 @@ public abstract class AbstractDAO<T> implements InterfaceDAO<T>{
 		
 		return registro;
 		
+	}
+	
+	public List<T> consultarGeral(Class pClasse, String tabela) {
+		return consultarGeral(pClasse, tabela, UtilJPA.getEntityManager(), true);
+	}
+
+	private List<T> consultarGeral(Class pClasse, String tabela, EntityManager pEntityManager, boolean pFecharEntityManager) {
+		String querySelect = "Select p From "+ tabela +" p";
+
+		TypedQuery<T> typedQuery =  pEntityManager.createQuery(querySelect, pClasse);
+
+		List<T> resultSet = typedQuery.getResultList();
+
+		return resultSet;
 	}
 	
 }

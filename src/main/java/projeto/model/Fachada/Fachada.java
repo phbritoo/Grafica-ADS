@@ -1,5 +1,7 @@
 package projeto.model.Fachada;
 
+import java.util.List;
+
 import projeto.model.dao.ClienteDAO;
 import projeto.model.dao.FuncionarioDAO;
 import projeto.model.dao.OrdemServicoDAO;
@@ -49,6 +51,10 @@ public class Fachada implements IFachada {
 	public Cliente ProcurarCliente(String cpf) {
 		return controladorCliente.consultarPorChavePrimaria(Cliente.class, cpf);
 	}
+	
+	public List<Cliente> ConsultarClientes(){
+		return controladorCliente.consultarGeral(Cliente.class, new Cliente().getClass().getName());
+	}
 
 	public void InserirFuncionario(Funcionario funcionario) {
 		controladorFuncionario.inserir(funcionario);
@@ -66,6 +72,10 @@ public class Fachada implements IFachada {
 	public Funcionario ProcurarFuncionario(String cpf) {
 		return controladorFuncionario.consultarPorChavePrimaria(Funcionario.class, cpf);
 	}
+	
+	public List<Funcionario> ConsultarFuncionarios(){
+		return controladorFuncionario.consultarGeral(Funcionario.class, new Funcionario().getClass().getName());
+	}
 
 	public void InserirServico(Servico servico) {
 		controladorServico.inserir(servico);
@@ -81,6 +91,10 @@ public class Fachada implements IFachada {
 
 	public Servico ProcurarServico(String codigoServico) {
 		return controladorServico.consultarPorChavePrimaria(Servico.class, codigoServico);
+	}
+	
+	public List<Servico> ConsultarServicos(){
+		return controladorServico.consultarGeral(Servico.class, new Servico().getClass().getName());
 	}
 
 	public void InserirOrdemServico(OrdemServico ordemServico) {
@@ -99,6 +113,10 @@ public class Fachada implements IFachada {
 
 	public OrdemServico ProcurarOrdemServico(String codigoOrdemServico) {
 		return controladorOrdemServico.consultarPorChavePrimaria(OrdemServico.class, codigoOrdemServico);
+	}
+	
+	public List<OrdemServico> ConsultarOrdemServicos(){
+		return controladorOrdemServico.consultarGeral(OrdemServico.class, new OrdemServico().getClass().getName());
 	}
 	
 	public double valorTotalOrdemServico(OrdemServico ordemServico) {

@@ -1,5 +1,9 @@
 package projeto.model.dao;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
 public interface InterfaceDAO<T> {
 	
 	public void inserir(T pEntidade);
@@ -17,4 +21,7 @@ public interface InterfaceDAO<T> {
 	public T consultarPorChavePrimaria(Class pClasse, Object pPrimaryKey);
 	
 	public T consultarPorObjeto(T pEntidade);
+	
+	public List<T> consultarGeral(Class pClasse, String tabela);
+
 }
