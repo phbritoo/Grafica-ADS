@@ -1,4 +1,4 @@
-package projeto.model.managedbean;
+package projeto.model.converter;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
