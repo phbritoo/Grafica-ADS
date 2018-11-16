@@ -14,9 +14,8 @@ import projeto.model.exception.CampoNaoInformadoException;
 
 public class ClienteTest {
 
-//	@Ignore
-	@Test//(expected=CampoNaoInformadoException.class)
-	public void test() {
+	@Test
+	public void testaConsultarClients() {
 		Cliente cliente = new Cliente();
 		cliente.setCPF("91263475477");
 		cliente.setNome("Henrique");

@@ -16,7 +16,8 @@
 				<br></br>
 				CPF: <h:inputText value="#{funcionarioManagedBean.funcionario.CPF}"></h:inputText>
 				<br></br>
-				Data de Nascimento: <h:inputText value="#{funcionarioManagedBean.funcionario.dataNascimento}"></h:inputText>
+				Data de Nascimento: <h:inputText value="#{funcionarioManagedBean.funcionario.dataNascimento}">
+				<c:convertDateTime type="date" locale="pt_BR" /> </h:inputText>
 				<br></br>
 				Cargo do Funcionario: <h:inputText value="#{funcionarioManagedBean.funcionario.cargo}"></h:inputText>
 				<br></br>
@@ -24,16 +25,16 @@
 				<br></br>
 				Senha: <h:inputSecret value="#{funcionarioManagedBean.funcionario.senha}"></h:inputSecret>
 				<br></br>
-				<!-- Logradouro: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.logradouro}"></h:inputText>
+				Logradouro: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.logradouro}"></h:inputText>
 				<br></br>
 				Numero: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.numero}"></h:inputText>
 				<br></br>
-				Bairo: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.bairro}"></h:inputText>
+				Bairro: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.bairro}"></h:inputText>
 				<br></br>
 				Cidade: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.cidade}"></h:inputText>
 				<br></br>
 				CEP: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.CEP}"></h:inputText>
-				<br></br> -->
+				<br></br>
 				
 				
 				<br></br>

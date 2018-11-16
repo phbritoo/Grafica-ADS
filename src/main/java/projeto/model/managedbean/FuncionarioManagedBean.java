@@ -6,7 +6,9 @@ import javax.faces.bean.ManagedBean;
 
 import projeto.model.Fachada.Fachada;
 import projeto.model.Fachada.IFachada;
+import projeto.model.entity.Endereco;
 import projeto.model.entity.Funcionario;
+import projeto.model.dao.*;
 
 @ManagedBean
 public class FuncionarioManagedBean {
@@ -17,6 +19,7 @@ public class FuncionarioManagedBean {
 	public Funcionario getFuncionario() {
 		if (this.funcionario == null) {
 			this.funcionario = new Funcionario();
+			this.funcionario.setEndereco(new Endereco());
 		}
 		return this.funcionario;
 	}

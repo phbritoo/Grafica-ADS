@@ -2,9 +2,13 @@ package projeto.model.managedbean;
 
 import java.util.Collection;
 
+import javax.faces.bean.ManagedBean;
+
 import projeto.model.Fachada.Fachada;
+import projeto.model.entity.OrdemServico;
 import projeto.model.entity.Servico;
 
+@ManagedBean
 public class ServicoManagedBean {
 	private Servico servico;
 	private Collection<Servico> aColecaoServico;
@@ -12,6 +16,7 @@ public class ServicoManagedBean {
 	public Servico getFuncionario() {
 		if (this.servico == null) {
 			this.servico = new Servico();
+			this.servico.setOrdemServico(new OrdemServico());
 		}
 		return this.servico;
 	}

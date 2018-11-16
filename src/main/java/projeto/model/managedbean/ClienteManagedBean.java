@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 
 import projeto.model.Fachada.Fachada;
 import projeto.model.entity.Cliente;
+import projeto.model.entity.Endereco;
 
 @ManagedBean
 public class ClienteManagedBean {
@@ -16,6 +17,7 @@ public class ClienteManagedBean {
 	public Cliente getCliente() {
 		if (this.cliente == null) {
 			this.cliente = new Cliente();
+			this.cliente.setEndereco(new Endereco());
 		}
 		return this.cliente;
 	}
