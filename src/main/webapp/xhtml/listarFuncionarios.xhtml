@@ -11,21 +11,38 @@
 	<f:include src="menu.xhtml" />
 	<center>
 		<h2>Listar Funcionarios Cadastrados</h2>
-		<p:dataTable var="car" value="#{dtBasicView.cars}">
-			<p:column headerText="Id">
-				<h:outputText value="#{car.id}" />
-			</p:column>
+		<p:dataTable emptyMessage="Nenhum registro encontrado"
+			paginator="true"
+			value="#{FuncionarioManagedBean.aColecaoFuncionarios}" var="func"
+			rows="8">
 
-			<p:column headerText="Year">
-				<h:outputText value="#{car.year}" />
+			<p:column headerText="Nome" sortBy="#{func.nome}"
+				filterBy="#{func.nome}">
+				<h:outputText value="#{func.nome}" />
 			</p:column>
-
-			<p:column headerText="Brand">
-				<h:outputText value="#{car.brand}" />
+			<p:column headerText="Nome" sortBy="#{func.nome}"
+				filterBy="#{func.nome}">
+				<h:outputText value="#{func.nome}" />
 			</p:column>
-
-			<p:column headerText="Color">
-				<h:outputText value="#{car.color}" />
+			<p:column headerText="Nome" sortBy="#{func.nome}"
+				filterBy="#{func.nome}">
+				<h:outputText value="#{func.nome}" />
+			</p:column>
+			<p:column headerText="Nome" sortBy="#{func.nome}"
+				filterBy="#{func.nome}">
+				<h:outputText value="#{func.nome}" />
+			</p:column>
+			<p:column headerText="Nome" sortBy="#{func.nome}"
+				filterBy="#{func.nome}">
+				<h:outputText value="#{func.nome}" />
+			</p:column>
+			<p:column headerText="Nome" sortBy="#{func.nome}"
+				filterBy="#{func.nome}">
+				<h:outputText value="#{func.nome}" />
+			</p:column>
+			<p:column headerText="Nome" sortBy="#{func.nome}"
+				filterBy="#{func.nome}">
+				<h:outputText value="#{func.nome}" />
 			</p:column>
 		</p:dataTable>
 
