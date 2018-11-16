@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:c="http://xmlns.jcp.org/jsf/core">
+	xmlns:c="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 
 </h:head>
@@ -10,60 +11,23 @@
 	<f:include src="menu.xhtml" />
 	<center>
 		<h2>Listar Funcionarios Cadastrados</h2>
-		<h:dataTable value="#{funcionarioMB.listaFuncionario}"
-			var="funcionario" border="1">
-			<h:column>
-				<c:facet name="header">CPF</c:facet>
-				#{funcionario.cPF}
-			</h:column>
+		<p:dataTable var="car" value="#{dtBasicView.cars}">
+			<p:column headerText="Id">
+				<h:outputText value="#{car.id}" />
+			</p:column>
 
-			<h:column>
-				<c:facet name="header">Nome</c:facet>
-				#{funcionario.nome}
-			</h:column>
+			<p:column headerText="Year">
+				<h:outputText value="#{car.year}" />
+			</p:column>
 
-			<h:column>
-				<c:facet name="header">Data de Nascimento</c:facet>
-				#{funcionario.dataNascimento}
-			</h:column>
+			<p:column headerText="Brand">
+				<h:outputText value="#{car.brand}" />
+			</p:column>
 
-			<h:column>
-				<c:facet name="header">Logradouro</c:facet>
-				#{cliente.Logradouro}
-			</h:column>
-
-			<h:column>
-				<c:facet name="header">Numero</c:facet>
-				#{cliente.Numero}
-			</h:column>
-
-			<h:column>
-				<c:facet name="header">CEP</c:facet>
-				#{cliente.cEP}
-			</h:column>
-
-			<h:column>
-				<c:facet name="header">Cidade</c:facet>
-				#{cliente.Cidade}
-			</h:column>
-
-			<h:column>
-				<c:facet name="header">Bairro</c:facet>
-				#{cliente.Bairro}
-			</h:column>
-
-			<h:column>
-				<c:facet name="header">Cargo</c:facet>
-				#{funcionario.cargo}
-			</h:column>
-
-		</h:dataTable>
-
-		<br> </br>
-
-		<h:commandLink value="Inserir" action="menu.xhtml"></h:commandLink>
-		<br></br> <br></br>
-		<h:commandButton value="Remover" action="remover"></h:commandButton>
+			<p:column headerText="Color">
+				<h:outputText value="#{car.color}" />
+			</p:column>
+		</p:dataTable>
 
 	</center>
 </h:body>
