@@ -25,7 +25,13 @@
 				<c:convertDateTime type="date" locale="pt_BR" /> </p:inputText>
 				
 				<p:outputLabel value="Cargo:"/>
-				<p:inputText value="#{funcionarioManagedBean.funcionario.cargo}"></p:inputText>
+				<h:selectOneMenu value="#{funcionarioManagedBean.funcionario.cargo}"  required="true">
+				<c:selectItem itemLabel="Escolha um Cargo" itemValue="" noSelectionOption="true" />
+                <c:selectItem itemLabel="DIRETOR" itemValue="DIRETOR"/>
+                <c:selectItem itemLabel="GERENTE" itemValue="GERENTE"/>
+                <c:selectItem itemLabel="AUXILIAR_PRODUCAO" itemValue="AUXILIAR_PRODUCAO"/>
+                <c:selectItem itemLabel="IMPRESSO_GRAFICO" itemValue="IMPRESSO_GRAFICO"/>
+				</h:selectOneMenu>
 				
 				<p:outputLabel value="Salario:"/>
 				<p:inputText value="#{funcionarioManagedBean.funcionario.salario}"></p:inputText>
@@ -48,8 +54,9 @@
 				<p:outputLabel value="CEP:"/>
 				<p:inputText value="#{funcionarioManagedBean.funcionario.endereco.CEP}"></p:inputText>
 				
-				<p:commandButton value="Cadastrar Funcionario" action="#{funcionarioManagedBean.inserir}" style="margin-right:20px;"></p:commandButton>
-				
+				<p:growl id="growl" life="2000" />
+				<p:commandButton update="growl" value="Cadastrar Funcionario" action="#{funcionarioManagedBean.inserir}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+
 			</h:panelGrid>
 		</h:form>
 		</center>
