@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import projeto.model.Fachada.Fachada;
 import projeto.model.entity.OrdemServico;
 import projeto.model.entity.Servico;
+import projeto.model.util.RetornoManagedBean;
 
 @ManagedBean
 public class ServicoManagedBean {
@@ -29,7 +30,7 @@ public class ServicoManagedBean {
 		String resultado = "";
 		if(this.servico != null) {
 			Fachada.getFachada().InserirServico(this.servico);
-			resultado = "inserido";
+			resultado = RetornoManagedBean.INSERIDO;
 		}
 		return resultado;
 	}
@@ -38,7 +39,7 @@ public class ServicoManagedBean {
 		String resultado = "";
 		if(this.servico != null) {
 			Fachada.getFachada().excluirServico((Integer)this.servico.getPK());
-			resultado = "excluido";
+			resultado = RetornoManagedBean.EXCLUIDO;
 		}
 		return resultado;
 	}
@@ -47,7 +48,7 @@ public class ServicoManagedBean {
 		String resultado = "";
 		if(this.servico != null) {
 			Fachada.getFachada().alteraServico(this.servico);
-			resultado = "alterado";
+			resultado = RetornoManagedBean.ALTERADO;
 		}
 		return resultado;
 	}
@@ -56,7 +57,7 @@ public class ServicoManagedBean {
 		String resultado = "";
 		if(this.servico != null) {
 			Fachada.getFachada().ProcurarServico((Integer)this.servico.getPK());
-			resultado = "consultar";
+			resultado = RetornoManagedBean.CONSULTAR;
 		}
 		return resultado;
 	}
@@ -64,7 +65,7 @@ public class ServicoManagedBean {
 	public String consultaGeral() {
 		this.aColecaoServico= Fachada.getFachada().ConsultarServicos();
 		
-		return "consultar";
+		return RetornoManagedBean.CONSULTAR;
 		
 	}
 

@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import projeto.model.Fachada.Fachada;
 import projeto.model.entity.Cliente;
 import projeto.model.entity.Endereco;
+import projeto.model.util.RetornoManagedBean;
 
 @ManagedBean
 public class ClienteManagedBean {
@@ -30,7 +31,7 @@ public class ClienteManagedBean {
 		String resultado = "";
 		if(this.cliente != null && this.cliente.getCPF() != null) {
 			Fachada.getFachada().InserirCliente(this.cliente);
-			resultado = "inserido";
+			resultado = RetornoManagedBean.INSERIDO;
 		}
 		return resultado;
 	}
@@ -39,7 +40,7 @@ public class ClienteManagedBean {
 		String resultado = "";
 		if(this.cliente != null && this.cliente.getCPF() != null) {
 			Fachada.getFachada().excluirCliente(this.cliente.getCPF());
-			resultado = "excluido";
+			resultado = RetornoManagedBean.EXCLUIDO;
 		}
 		return resultado;
 	}
@@ -48,7 +49,7 @@ public class ClienteManagedBean {
 		String resultado = "";
 		if(this.cliente != null && this.cliente.getCPF() != null) {
 			Fachada.getFachada().alteraCliente(this.cliente);
-			resultado = "alterado";
+			resultado = RetornoManagedBean.ALTERADO;
 		}
 		return resultado;
 	}
@@ -57,7 +58,7 @@ public class ClienteManagedBean {
 		String resultado = "";
 		if(this.cliente != null && this.cliente.getCPF() != null) {
 			Fachada.getFachada().ProcurarCliente(this.cliente.getCPF());
-			resultado = "consultar";
+			resultado = RetornoManagedBean.CONSULTAR;
 		}
 		return resultado;
 	}
@@ -65,7 +66,7 @@ public class ClienteManagedBean {
 	public String consultaGeral() {
 		this.aColecaoClientes = Fachada.getFachada().ConsultarClientes();
 		
-		return "consultar";
+		return RetornoManagedBean.CONSULTAR;
 		
 	}
 

@@ -8,6 +8,11 @@ import projeto.model.Fachada.Fachada;
 import projeto.model.Fachada.IFachada;
 import projeto.model.entity.Endereco;
 import projeto.model.entity.Funcionario;
+import projeto.model.entity.ValidaCPF;
+import projeto.model.exception.CampoNaoInformadoException;
+import projeto.model.exception.CpfInvalidoException;
+import projeto.model.exception.ObjetoNuloException;
+import projeto.model.util.RetornoManagedBean;
 import projeto.model.dao.*;
 
 @ManagedBean
@@ -16,7 +21,7 @@ public class FuncionarioManagedBean {
 	
 	private Funcionario funcionario;
 	private Collection<Funcionario> aColecaoFuncionarios;
-	private String	mensagemErro;
+	private String	erro;
 
 	public Funcionario getFuncionario() {
 		if (this.funcionario == null) {
@@ -32,19 +37,35 @@ public class FuncionarioManagedBean {
 	
 	public String inserir() {
 		String resultado = "";
-		String mensagemErro = "";
-		if(this.funcionario != null && this.funcionario.getCPF() != null) {
-			Fachada.getFachada().InserirFuncionario(this.funcionario);
-			resultado = "inserido";
+		String erro = "";
+		try{
+		if (this.funcionario == null) {
+			throw new ObjetoNuloException("funcionario");
+		}
+		if (this.funcionario.getCPF() == null) {
+			throw new CampoNaoInformadoException("CPF");
+		}
+		if (ValidaCPF.isCPF(this.funcionario.getCPF())) {
+			throw new CpfInvalidoException();
+		}
+		
+		Fachada.getFachada().InserirFuncionario(this.funcionario);
+		resultado = RetornoManagedBean.INSERIDO;
+		
+		}
+		catch(Exception e) {
+			erro = e.getMessage();
+			resultado = RetornoManagedBean.ERRO;
 		}
 		return resultado;
+		
 	}
 	
 	public String excluir() {
 		String resultado = "";
 		if(this.funcionario != null && this.funcionario.getCPF() != null) {
 			Fachada.getFachada().excluirFuncionario(this.funcionario.getCPF());
-			resultado = "excluido";
+			resultado = RetornoManagedBean.EXCLUIDO;
 		}
 		return resultado;
 	}
@@ -53,7 +74,7 @@ public class FuncionarioManagedBean {
 		String resultado = "";
 		if(this.funcionario != null && this.funcionario.getCPF() != null) {
 			Fachada.getFachada().alteraFuncionario(this.funcionario);
-			resultado = "alterado";
+			resultado = RetornoManagedBean.ALTERADO;
 		}
 		return resultado;
 	}
@@ -62,7 +83,7 @@ public class FuncionarioManagedBean {
 		String resultado = "";
 		if(this.funcionario != null && this.funcionario.getCPF() != null) {
 			Fachada.getFachada().ProcurarCliente(this.funcionario.getCPF());
-			resultado = "consultar";
+			resultado = RetornoManagedBean.CONSULTAR;
 		}
 		return resultado;
 	}
@@ -70,7 +91,7 @@ public class FuncionarioManagedBean {
 	public String consultaGeral() {
 		this.aColecaoFuncionarios= Fachada.getFachada().ConsultarFuncionarios();
 		
-		return "consultar";
+		return RetornoManagedBean.CONSULTAR;
 		
 	}
 }
