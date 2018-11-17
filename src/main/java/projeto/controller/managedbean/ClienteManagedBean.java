@@ -1,4 +1,4 @@
-package projeto.model.managedbean;
+package projeto.controller.managedbean;
 
 import java.util.Collection;
 

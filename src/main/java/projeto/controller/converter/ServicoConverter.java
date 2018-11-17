@@ -1,28 +1,26 @@
-package projeto.model.converter;
+package projeto.controller.converter;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.FacesConverter;
 
 import projeto.model.Fachada.Fachada;
-import projeto.model.entity.Cliente;
+import projeto.model.entity.Servico;
 
-@FacesConverter(forClass=Cliente.class)
-public class ClienteConverter implements Converter {
+public class ServicoConverter implements Converter {
 
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
-		Cliente cliente = null;
-		cliente = Fachada.getFachada().ProcurarCliente(value);
-		return cliente;
+		Servico servico = null;
+		servico = Fachada.getFachada().ProcurarServico(Integer.parseInt(value));
+		return servico;
 	}
 
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 		String resposta = "";
 		
 		if(value != null) {
-			Cliente cliente = (Cliente)value;
-			resposta = cliente.getCPF() + ":" + cliente.getNome();
+			Servico servico = (Servico)value;
+			resposta = servico.getPK().toString();
 		}
 		return resposta;
 	}

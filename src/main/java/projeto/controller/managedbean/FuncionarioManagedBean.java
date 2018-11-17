@@ -1,4 +1,4 @@
-package projeto.model.managedbean;
+package projeto.controller.managedbean;
 
 import java.util.Collection;
 
@@ -12,9 +12,11 @@ import projeto.model.dao.*;
 
 @ManagedBean
 public class FuncionarioManagedBean {
-
+	
+	
 	private Funcionario funcionario;
 	private Collection<Funcionario> aColecaoFuncionarios;
+	private String	mensagemErro;
 
 	public Funcionario getFuncionario() {
 		if (this.funcionario == null) {
@@ -30,6 +32,7 @@ public class FuncionarioManagedBean {
 	
 	public String inserir() {
 		String resultado = "";
+		String mensagemErro = "";
 		if(this.funcionario != null && this.funcionario.getCPF() != null) {
 			Fachada.getFachada().InserirFuncionario(this.funcionario);
 			resultado = "inserido";
