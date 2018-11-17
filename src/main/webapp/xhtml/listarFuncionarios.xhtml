@@ -16,15 +16,15 @@
 			<p:panel header="Listar Funcionarios">
 
 				<p:dataTable emptyMessage="Nenhum registro encontrado"
-					paginator="true" value="#{FuncionarioManagedBean.cosultarGeral}"
+					paginator="true" value="#{funcionarioManagedBean.listaFuncionarios}"
 					var="func" rows="5">
 					<p:column headerText="Nome" sortBy="#{func.nome}"
 						filterBy="#{func.nome}">
 						<h:outputText value="#{func.nome}" />
 					</p:column>
-					<p:column headerText="CPF" sortBy="#{func.cpf}"
-						filterBy="#{func.cpf}">
-						<h:outputText value="#{func.nome}" />
+					<p:column headerText="CPF" sortBy="#{func.CPF}"
+						filterBy="#{func.CPF}">
+						<h:outputText value="#{func.CPF}" />
 					</p:column>
 					<p:column headerText="Data de Nascimento">
 						<h:outputText value="#{func.dataNascimento}" />
@@ -38,7 +38,7 @@
 					</p:column>
 					<p:column headerText="Ações">
 						<p:commandButton icon="ui-icon-trash" />
-						<p:commandButton icon="ui-icon-trash" />
+						<p:commandButton icon="ui-icon-pencil" />
 					</p:column>
 
 				</p:dataTable>

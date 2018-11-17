@@ -1,11 +1,16 @@
 package projeto.controller.managedbean;
 
+import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import projeto.model.Fachada.Fachada;
-import projeto.model.Fachada.IFachada;
+import projeto.model.dao.ClienteDAO;
+import projeto.model.dao.FuncionarioDAO;
+import projeto.model.entity.Cliente;
 import projeto.model.entity.Endereco;
 import projeto.model.entity.Funcionario;
 import projeto.model.entity.ValidaCPF;
@@ -13,15 +18,34 @@ import projeto.model.exception.CampoNaoInformadoException;
 import projeto.model.exception.CpfInvalidoException;
 import projeto.model.exception.ObjetoNuloException;
 import projeto.model.util.RetornoManagedBean;
-import projeto.model.dao.*;
 
 @ManagedBean
-public class FuncionarioManagedBean {
+public class FuncionarioManagedBean implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
+	Funcionario funcionario;
 	
-	private Funcionario funcionario;
-	private Collection<Funcionario> aColecaoFuncionarios;
-	private String	erro;
+	FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+	
+	List<Funcionario> listaFuncionarios;
+	
+	public List<Funcionario> getListaFuncionarios() {
+		return listaFuncionarios;
+	}
+
+	public void setListaFuncionarios(List<Funcionario> listaFuncionarios) {
+		this.listaFuncionarios = listaFuncionarios;
+	}
+
+	/*private Funcionario funcionario;*/
+	Collection<Funcionario> aColecaoFuncionarios;
+	String erro;
+	
+	@PostConstruct
+	public void atualizaListaFuncionarios() {
+		this.listaFuncionarios = funcionarioDAO.consultarTodosOsFuncionarios();
+		
+	}
 
 	public Funcionario getFuncionario() {
 		if (this.funcionario == null) {
