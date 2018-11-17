@@ -1,7 +1,9 @@
 <html	xmlns="http://www.w3.org/1999/xhtml"
     	xmlns:c="http://xmlns.jcp.org/jsf/core"
     	xmlns:h="http://xmlns.jcp.org/jsf/html"
-    	xmlns:f="http://xmlns.jcp.org/jsf/facelets">
+    	xmlns:f="http://xmlns.jcp.org/jsf/facelets"
+    	xmlns:p="http://primefaces.org/ui">
+    	
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Cadastro de Funcionários</title>
@@ -12,33 +14,42 @@
 		<h1>Cadastro de Funcionários</h1>
 		<h:form method="post">
 			<h:panelGrid columns="2">
-				Nome <h:inputText value="#{funcionarioManagedBean.funcionario.nome}"></h:inputText>
-				<br></br>
-				CPF: <h:inputText value="#{funcionarioManagedBean.funcionario.CPF}"></h:inputText>
-				<br></br>
-				Data de Nascimento: <h:inputText value="#{funcionarioManagedBean.funcionario.dataNascimento}">
-				<c:convertDateTime type="date" locale="pt_BR" /> </h:inputText>
-				<br></br>
-				Cargo do Funcionario: <h:inputText value="#{funcionarioManagedBean.funcionario.cargo}"></h:inputText>
-				<br></br>
-				Salario: <h:inputText value="#{funcionarioManagedBean.funcionario.salario}"></h:inputText>
-				<br></br>
-				Senha: <h:inputSecret value="#{funcionarioManagedBean.funcionario.senha}"></h:inputSecret>
-				<br></br>
-				Logradouro: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.logradouro}"></h:inputText>
-				<br></br>
-				Numero: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.numero}"></h:inputText>
-				<br></br>
-				Bairro: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.bairro}"></h:inputText>
-				<br></br>
-				Cidade: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.cidade}"></h:inputText>
-				<br></br>
-				CEP: <h:inputText value="#{funcionarioManagedBean.funcionario.endereco.CEP}"></h:inputText>
-				<br></br>
+				<p:outputLabel value="Nome:"/>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.nome}"></p:inputText>
+			
+				<p:outputLabel value="CPF:"/>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.CPF}"></p:inputText>
 				
+				<p:outputLabel value="Nascimento:"/>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.dataNascimento}">
+				<c:convertDateTime type="date" locale="pt_BR" /> </p:inputText>
 				
-				<br></br>
-				<h:commandButton	value="Cadastrar Funcionario"		action="#{funcionarioManagedBean.inserir}"></h:commandButton>
+				<p:outputLabel value="Cargo:"/>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.cargo}"></p:inputText>
+				
+				<p:outputLabel value="Salario:"/>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.salario}"></p:inputText>
+				
+				<p:outputLabel value="Senha:"/>
+				<p:password value="#{funcionarioManagedBean.funcionario.senha}"></p:password>
+				
+				<p:outputLabel value="Rua:"/>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.endereco.logradouro}"></p:inputText>
+				
+				<p:outputLabel value="Numero:"/>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.endereco.numero}"></p:inputText>
+				
+				<p:outputLabel value="Bairro:"/>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.endereco.bairro}"></p:inputText>
+				
+				<p:outputLabel value="Cidade:"/>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.endereco.cidade}"></p:inputText>
+				
+				<p:outputLabel value="CEP:"/>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.endereco.CEP}"></p:inputText>
+				
+				<p:commandButton value="Cadastrar Funcionario" action="#{funcionarioManagedBean.inserir}" style="margin-right:20px;"></p:commandButton>
+				
 			</h:panelGrid>
 		</h:form>
 		</center>
