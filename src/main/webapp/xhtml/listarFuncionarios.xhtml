@@ -16,7 +16,8 @@
 			<p:panel header="Listar Funcionarios">
 
 				<p:dataTable emptyMessage="Nenhum registro encontrado"
-					paginator="true" value="#{FuncionarioManagedBeans.aColecaoFuncionarios}" var="func"
+					paginator="true"
+					value="#{FuncionarioManagedBeans.aColecaoFuncionarios}" var="func"
 					rows="8">
 
 
@@ -24,27 +25,26 @@
 						filterBy="#{func.nome}">
 						<h:outputText value="#{func.nome}" />
 					</p:column>
-		
+
 					<p:column headerText="CPF" filterBy="#{func.cpf}">
 						<h:outputText value="#{func.cpf}" />
 					</p:column>
 
-					<p:column headerText="Telefone">
-						<h:outputText value="#{func.telefone}" />
+					<p:column headerText="Data de Nascimento">
+						<h:outputText value="#{func.dataNascimento}" />
 					</p:column>
 
-					<p:column headerText="Email">
-						<h:outputText value="#{func.email}" />
+					<p:column headerText="Cargo">
+						<h:outputText value="#{func.cargo}" />
 					</p:column>
-
+					<p:column headerText="Salario">
+						<h:outputText value="#{func.salario}" />
+					</p:column>
 					<p:column headerText="Ações">
 						<p:commandButton icon="ui-icon-trash" />
 					</p:column>
 
 				</p:dataTable>
-				
-			<!-- <!-- 	<h:outputText rendered="#{func.erro != null}" value="#{func.erro}"></h:outputText> --> -->
-
 				<p:confirmDialog global="true">
 					<p:commandButton value="Sim" type="button"
 						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
