@@ -5,31 +5,27 @@
 	xmlns:c="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Lista de Funcionários</title>
 </h:head>
 <h:body>
 	<f:include src="menu.xhtml" />
 	<center>
-		<h2></h2>
 		<p:growl id="messages" />
 		<h:form>
 			<p:panel header="Listar Funcionarios">
 
 				<p:dataTable emptyMessage="Nenhum registro encontrado"
-					paginator="true"
-					value="#{FuncionarioManagedBeans.aColecaoFuncionarios}" var="func"
-					rows="8">
-
-
+					paginator="true" value="#{FuncionarioManagedBean.cosultarGeral}"
+					var="func" rows="5">
 					<p:column headerText="Nome" sortBy="#{func.nome}"
 						filterBy="#{func.nome}">
 						<h:outputText value="#{func.nome}" />
 					</p:column>
-
-					<p:column headerText="CPF" filterBy="#{func.cpf}">
-						<h:outputText value="#{func.cpf}" />
+					<p:column headerText="CPF" sortBy="#{func.cpf}"
+						filterBy="#{func.cpf}">
+						<h:outputText value="#{func.nome}" />
 					</p:column>
-
 					<p:column headerText="Data de Nascimento">
 						<h:outputText value="#{func.dataNascimento}" />
 					</p:column>
@@ -41,6 +37,7 @@
 						<h:outputText value="#{func.salario}" />
 					</p:column>
 					<p:column headerText="Ações">
+						<p:commandButton icon="ui-icon-trash" />
 						<p:commandButton icon="ui-icon-trash" />
 					</p:column>
 
