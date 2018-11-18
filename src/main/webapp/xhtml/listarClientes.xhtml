@@ -16,7 +16,7 @@
 			<p:panel header="Listar Clientes">
 
 				<p:dataTable emptyMessage="Nenhum registro encontrado"
-					paginator="true" value="#{clienteManagedBean.listaClientes}"
+					paginator="true" value="#{clienteManagedBean.aListaClientes}"
 					var="func" rows="5">
 					<p:column headerText="Nome" sortBy="#{func.nome}"
 						filterBy="#{func.nome}">

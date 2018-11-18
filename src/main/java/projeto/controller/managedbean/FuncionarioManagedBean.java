@@ -1,16 +1,12 @@
 package projeto.controller.managedbean;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import projeto.model.Fachada.Fachada;
-import projeto.model.dao.ClienteDAO;
-import projeto.model.dao.FuncionarioDAO;
-import projeto.model.entity.Cliente;
 import projeto.model.entity.Endereco;
 import projeto.model.entity.Funcionario;
 import projeto.model.entity.ValidaCPF;
@@ -20,32 +16,11 @@ import projeto.model.exception.ObjetoNuloException;
 import projeto.model.util.RetornoManagedBean;
 
 @ManagedBean
-public class FuncionarioManagedBean implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class FuncionarioManagedBean{
 	
 	Funcionario funcionario;
-	
-	FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-	
-	List<Funcionario> listaFuncionarios;
-	
-	public List<Funcionario> getListaFuncionarios() {
-		return listaFuncionarios;
-	}
-
-	public void setListaFuncionarios(List<Funcionario> listaFuncionarios) {
-		this.listaFuncionarios = listaFuncionarios;
-	}
-
-	/*private Funcionario funcionario;*/
-	Collection<Funcionario> aColecaoFuncionarios;
+	List<Funcionario> aListaFuncionarios;
 	String erro;
-	
-	@PostConstruct
-	public void atualizaListaFuncionarios() {
-		this.listaFuncionarios = funcionarioDAO.consultarTodosOsFuncionarios();
-		
-	}
 
 	public Funcionario getFuncionario() {
 		if (this.funcionario == null) {
@@ -63,18 +38,34 @@ public class FuncionarioManagedBean implements Serializable{
 		return erro;
 	}
 
+	public List<Funcionario> getaListaFuncionarios() {
+		return aListaFuncionarios;
+	}
+
+	public void setaListaFuncionarios(List<Funcionario> aListaFuncionarios) {
+		this.aListaFuncionarios = aListaFuncionarios;
+	}
+
 	public void setErro(String erro) {
 		this.erro = erro;
+	}
+	
+	@PostConstruct
+	public void atualizaListaFuncionarios() {
+		this.consultaGeral();
 	}
 
 	public String inserir() {
 		String resultado = "";
-		String erro = "";
+		String erro = "errado";
+		
+		
+		
 		try{
 		if (this.funcionario == null) {
 			throw new ObjetoNuloException("funcionario");
 		}
-		if (this.funcionario.getCPF() == null) {
+		if (this.funcionario.getCPF() == null || this.funcionario.getCPF() == "") {
 			throw new CampoNaoInformadoException("CPF");
 		}
 		if (ValidaCPF.isCPF(this.funcionario.getCPF())) {
@@ -120,8 +111,9 @@ public class FuncionarioManagedBean implements Serializable{
 		return resultado;
 	}
 	
+	@PostConstruct
 	public String consultaGeral() {
-		this.aColecaoFuncionarios= Fachada.getFachada().ConsultarFuncionarios();
+		this.aListaFuncionarios= Fachada.getFachada().ConsultarFuncionarios();
 		
 		return RetornoManagedBean.CONSULTAR;
 		

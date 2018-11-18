@@ -16,7 +16,7 @@
 			<p:panel header="Listar Funcionarios">
 
 				<p:dataTable emptyMessage="Nenhum registro encontrado"
-					paginator="true" value="#{funcionarioManagedBean.listaFuncionarios}"
+					paginator="true" value="#{funcionarioManagedBean.aListaFuncionarios}"
 					var="func" rows="5">
 					<p:column headerText="Nome" sortBy="#{func.nome}"
 						filterBy="#{func.nome}">

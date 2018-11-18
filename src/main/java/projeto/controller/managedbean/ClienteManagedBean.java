@@ -24,26 +24,21 @@ public class ClienteManagedBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	Cliente cliente;
-	Endereco endereco;
-	
-	ClienteDAO clienteDAO = new ClienteDAO();
-	
-	List<Cliente> listaClientes;
-	List<Endereco> listaEnderecos;
+	List<Cliente> aListaClientes;
 	
 	
-	
-	public List<Cliente> getListaClientes() {
-		return listaClientes;
+
+	public List<Cliente> getaListaClientes() {
+		return aListaClientes;
 	}
 
-	public void setListaClientes(List<Cliente> listaClientes) {
-		this.listaClientes = listaClientes;
+	public void setaListaClientes(List<Cliente> aListaClientes) {
+		this.aListaClientes = aListaClientes;
 	}
 
 	@PostConstruct
 	public void atualizaListaClientes() {
-		this.listaClientes = clienteDAO.consultarTodosOsClientes();
+		consultaGeral();
 		
 	}
 	
@@ -97,11 +92,11 @@ public class ClienteManagedBean implements Serializable{
 		return resultado;
 	}
 	
-	/*public String consultaGeral() {
-		this.aColecaoClientes = Fachada.getFachada().ConsultarClientes();
+	public String consultaGeral() {
+		this.aListaClientes = Fachada.getFachada().ConsultarClientes();
 		
 		return RetornoManagedBean.CONSULTAR;
 		
-	}*/
+	}
 
 }
