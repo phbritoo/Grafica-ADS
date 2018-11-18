@@ -59,7 +59,8 @@
 				
 				<p:growl id="growl" life="2000" />
 				<p:commandButton update="growl" value="Cadastrar Funcionario" action="#{funcionarioManagedBean.inserir}" style="margin-right:20px;" styleClass="ui-priority-primary" />
-
+				
+				<h:outputText rendered="#{funcionarioManagedBean.erro != null}" value="#{funcionarioManagedBean.erro}"></h:outputText>
 			</h:panelGrid>
 		</h:form>
 		</center>

@@ -1,31 +1,21 @@
 package projeto.controller.managedbean;
 
 import javax.annotation.PostConstruct;
-import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 
 import projeto.model.Fachada.Fachada;
-import projeto.model.dao.ClienteDAO;
 import projeto.model.entity.Cliente;
 import projeto.model.entity.Endereco;
 import projeto.model.util.RetornoManagedBean;
 
-@ViewScoped
 @ManagedBean
-public class ClienteManagedBean implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class ClienteManagedBean{
 	
 	Cliente cliente;
 	List<Cliente> aListaClientes;
-	
+	String erro = null;
 	
 
 	public List<Cliente> getaListaClientes() {
@@ -35,14 +25,6 @@ public class ClienteManagedBean implements Serializable{
 	public void setaListaClientes(List<Cliente> aListaClientes) {
 		this.aListaClientes = aListaClientes;
 	}
-
-	@PostConstruct
-	public void atualizaListaClientes() {
-		consultaGeral();
-		
-	}
-	
-	/*private Collection<Cliente> aColecaoClientes;*/
 	
 	public Cliente getCliente() {
 		if (this.cliente == null) {
@@ -50,6 +32,19 @@ public class ClienteManagedBean implements Serializable{
 			this.cliente.setEndereco(new Endereco());
 		}
 		return this.cliente;
+	}
+
+	public String getErro() {
+		return erro;
+	}
+
+	public void setErro(String erro) {
+		this.erro = erro;
+	}
+	
+	@PostConstruct
+	public void atualizaListaClientes() {
+		consultaGeral();
 	}
 
 	public void setCliente(Cliente pCliente) {

@@ -20,7 +20,7 @@ public class FuncionarioManagedBean{
 	
 	Funcionario funcionario;
 	List<Funcionario> aListaFuncionarios;
-	String erro;
+	String erro = null;
 
 	public Funcionario getFuncionario() {
 		if (this.funcionario == null) {
@@ -57,9 +57,7 @@ public class FuncionarioManagedBean{
 
 	public String inserir() {
 		String resultado = "";
-		String erro = "errado";
-		
-		
+		erro = null;
 		
 		try{
 		if (this.funcionario == null) {
