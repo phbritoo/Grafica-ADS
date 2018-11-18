@@ -1,0 +1,30 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type	" content="text/html; charset=UTF-8" />
+	<title>Login do usuario</title>
+</h:head>
+<h:body>
+<center><br></br><br></br><br></br><br></br><br></br><br></br>
+		<h1>Bem Vindo a Grafica Digital</h1>
+<h:form> 
+    <p:commandButton value="Fazer Login" onclick="PF('dlg').show();" type="button" icon="pi pi-home" />
+     
+    <p:dialog header="Login" widgetVar="dlg" >
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="cpf" value="CPF:" />
+            <p:inputText id="cpf" label="cpf" />
+             
+            <h:outputLabel for="senha" value="Senha:" />
+            <p:password id="senha" label="senha" />
+             <h:button value="Entrar" outcome="entrar"></h:button>
+        </h:panelGrid>
+    </p:dialog>       
+</h:form>
+</center>
+</h:body>
+</html>

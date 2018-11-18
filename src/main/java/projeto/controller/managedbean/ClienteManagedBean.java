@@ -1,19 +1,53 @@
 package projeto.controller.managedbean;
 
+import javax.annotation.PostConstruct;
+import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import projeto.model.Fachada.Fachada;
+import projeto.model.dao.ClienteDAO;
 import projeto.model.entity.Cliente;
 import projeto.model.entity.Endereco;
 import projeto.model.util.RetornoManagedBean;
 
+@ViewScoped
 @ManagedBean
-public class ClienteManagedBean {
+public class ClienteManagedBean implements Serializable{
 	
-	private Cliente cliente;
-	private Collection<Cliente> aColecaoClientes;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	Cliente cliente;
+	Endereco endereco;
+	
+	ClienteDAO clienteDAO = new ClienteDAO();
+	
+	List<Cliente> listaClientes;
+	List<Endereco> listaEnderecos;
+	
+	
+	
+	public List<Cliente> getListaClientes() {
+		return listaClientes;
+	}
+
+	public void setListaClientes(List<Cliente> listaClientes) {
+		this.listaClientes = listaClientes;
+	}
+
+	@PostConstruct
+	public void atualizaListaClientes() {
+		this.listaClientes = clienteDAO.consultarTodosOsClientes();
+		
+	}
+	
+	/*private Collection<Cliente> aColecaoClientes;*/
 	
 	public Cliente getCliente() {
 		if (this.cliente == null) {
@@ -63,11 +97,11 @@ public class ClienteManagedBean {
 		return resultado;
 	}
 	
-	public String consultaGeral() {
+	/*public String consultaGeral() {
 		this.aColecaoClientes = Fachada.getFachada().ConsultarClientes();
 		
 		return RetornoManagedBean.CONSULTAR;
 		
-	}
+	}*/
 
 }

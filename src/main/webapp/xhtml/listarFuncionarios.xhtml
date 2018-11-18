@@ -5,46 +5,43 @@
 	xmlns:c="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Lista de Funcionários</title>
 </h:head>
 <h:body>
 	<f:include src="menu.xhtml" />
 	<center>
-		<h2></h2>
 		<p:growl id="messages" />
 		<h:form>
 			<p:panel header="Listar Funcionarios">
 
 				<p:dataTable emptyMessage="Nenhum registro encontrado"
-					paginator="true" value="#{FuncionarioManagedBeans.aColecaoFuncionarios}" var="func"
-					rows="8">
-
-
+					paginator="true" value="#{funcionarioManagedBean.listaFuncionarios}"
+					var="func" rows="5">
 					<p:column headerText="Nome" sortBy="#{func.nome}"
 						filterBy="#{func.nome}">
 						<h:outputText value="#{func.nome}" />
 					</p:column>
-		
-					<p:column headerText="CPF" filterBy="#{func.cpf}">
-						<h:outputText value="#{func.cpf}" />
+					<p:column headerText="CPF" sortBy="#{func.CPF}"
+						filterBy="#{func.CPF}">
+						<h:outputText value="#{func.CPF}" />
+					</p:column>
+					<p:column headerText="Data de Nascimento">
+						<h:outputText value="#{func.dataNascimento}" />
 					</p:column>
 
-					<p:column headerText="Telefone">
-						<h:outputText value="#{func.telefone}" />
+					<p:column headerText="Cargo">
+						<h:outputText value="#{func.cargo}" />
 					</p:column>
-
-					<p:column headerText="Email">
-						<h:outputText value="#{func.email}" />
+					<p:column headerText="Salario">
+						<h:outputText value="#{func.salario}" />
 					</p:column>
-
 					<p:column headerText="Ações">
 						<p:commandButton icon="ui-icon-trash" />
+						<p:commandButton icon="ui-icon-pencil" />
 					</p:column>
 
 				</p:dataTable>
-				
-			<!-- <!-- 	<h:outputText rendered="#{func.erro != null}" value="#{func.erro}"></h:outputText> --> -->
-
 				<p:confirmDialog global="true">
 					<p:commandButton value="Sim" type="button"
 						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
