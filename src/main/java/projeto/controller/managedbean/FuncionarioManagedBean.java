@@ -35,6 +35,14 @@ public class FuncionarioManagedBean {
 		this.funcionario = pFuncionario;
 	}
 	
+	public String getErro() {
+		return erro;
+	}
+
+	public void setErro(String erro) {
+		this.erro = erro;
+	}
+
 	public String inserir() {
 		String resultado = "";
 		String erro = "";
