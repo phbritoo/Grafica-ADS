@@ -13,7 +13,7 @@
 	<center>
 		<p:growl id="messages" />
 		<h:form>
-			<p:panel header="Listar Servicos (OS)">
+			<p:panel header="LISTA DE SERVICOS - OS">
 
 				<p:dataTable emptyMessage="Nenhum registro encontrado"
 					paginator="true" value="#{FuncionarioManagedBean.cosultarGeral}"
@@ -37,20 +37,12 @@
 						<h:outputText value="#{func.salario}" />
 					</p:column>
 					<p:column headerText="Ações">
-						<p:commandButton icon="ui-icon-trash" />
-						<p:commandButton icon="ui-icon-trash" />
+						<p:commandButton icon="ui-icon-trash" value="Deletar" />
+						<p:commandButton icon="ui-icon-pencil"  value="Alterar"/>
 					</p:column>
 
 				</p:dataTable>
-				<p:confirmDialog global="true">
-					<p:commandButton value="Sim" type="button"
-						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-					<p:commandButton value="Não" type="button"
-						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-				</p:confirmDialog>
-
 			</p:panel>
-
 		</h:form>
 	</center>
 </h:body>

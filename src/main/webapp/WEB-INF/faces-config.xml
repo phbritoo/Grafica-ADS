@@ -17,7 +17,34 @@ facesconfig_2_2.xsd"
 		</navigation-case>
 	</navigation-rule>
 	
-		<navigation-rule>
+	<navigation-rule>
+		<from-view-id>/xhtml/cadastroCliente.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>inserido</from-outcome>
+			<to-view-id>/xhtml/listarClientes.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/xhtml/cadastroOS.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>inserido</from-outcome>
+			<to-view-id>/xhtml/listarServicos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/xhtml/listarClientes.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>ecluido</from-outcome>
+			<to-view-id>/xhtml/listarClientes.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
 		<from-view-id>/xhtml/index.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>entrar</from-outcome>
@@ -25,5 +52,6 @@ facesconfig_2_2.xsd"
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
 </faces-config>
 
