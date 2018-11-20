@@ -1,4 +1,4 @@
-package projeto.model.entity;
+package projeto.model.util;
 
 import java.util.InputMismatchException;
 

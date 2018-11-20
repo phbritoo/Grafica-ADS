@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 import projeto.model.Fachada.Fachada;
 import projeto.model.entity.Endereco;
 import projeto.model.entity.Funcionario;
-import projeto.model.entity.ValidaCPF;
+import projeto.model.util.ValidaCPF;
 import projeto.model.exception.CampoNaoInformadoException;
 import projeto.model.exception.CpfInvalidoException;
 import projeto.model.exception.ObjetoNuloException;
@@ -22,7 +22,6 @@ public class FuncionarioManagedBean{
 	
 	Funcionario funcionario;
 	List<Funcionario> aListaFuncionarios;
-	String erro = null;
 
 	public Funcionario getFuncionario() {
 		if (this.funcionario == null) {
@@ -35,10 +34,6 @@ public class FuncionarioManagedBean{
 	public void setFuncionario(Funcionario pFuncionario) {
 		this.funcionario = pFuncionario;
 	}
-	
-	public String getErro() {
-		return erro;
-	}
 
 	public List<Funcionario> getaListaFuncionarios() {
 		return aListaFuncionarios;
@@ -48,10 +43,6 @@ public class FuncionarioManagedBean{
 		this.aListaFuncionarios = aListaFuncionarios;
 	}
 
-	public void setErro(String erro) {
-		this.erro = erro;
-	}
-	
 	@PostConstruct
 	public void atualizaListaFuncionarios() {
 		this.consultaGeral();
@@ -59,17 +50,33 @@ public class FuncionarioManagedBean{
 
 	public String inserir() {
 		String resultado = "";
-		erro = null;
 		
 		try{
 		if (this.funcionario == null) {
 			throw new ObjetoNuloException("funcionario");
 		}
+		if (this.funcionario.getNome() == null || this.funcionario.getNome() == "") {
+			throw new CampoNaoInformadoException("Nome");
+		}
 		if (this.funcionario.getCPF() == null || this.funcionario.getCPF() == "") {
 			throw new CampoNaoInformadoException("CPF");
 		}
-		if (!ValidaCPF.isCPF(this.funcionario.getCPF())) {
+		String cpf = this.funcionario.getCPF().replaceAll("\\.", "");
+		cpf = cpf.replace("-", "");
+		if (!ValidaCPF.isCPF(cpf)) {
 			throw new CpfInvalidoException();
+		}
+		if (this.funcionario.getDataNascimento() == null) {
+			throw new CampoNaoInformadoException("Nascimento");
+		}
+		if (this.funcionario.getCargo() == null) {
+			throw new CampoNaoInformadoException("Cargo");
+		}
+		if (this.funcionario.getSalario() == null) {
+			throw new CampoNaoInformadoException("Salario");
+		}
+		if (this.funcionario.getSenha() == null || this.funcionario.getSenha() == "") {
+			throw new CampoNaoInformadoException("Senha");
 		}
 		
 		Fachada.getFachada().InserirFuncionario(this.funcionario);

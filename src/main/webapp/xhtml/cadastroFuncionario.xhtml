@@ -21,13 +21,13 @@
 				<p:inputText value="#{funcionarioManagedBean.funcionario.nome}"></p:inputText>
 
 				<p:outputLabel value="CPF:" />
-				<p:inputText value="#{funcionarioManagedBean.funcionario.CPF}"></p:inputText>
+				<p:inputMask mask="999.999.999-99" value="#{funcionarioManagedBean.funcionario.CPF}"></p:inputMask>
 
 				<p:outputLabel value="Nascimento:" />
-				<p:inputText
-					value="#{funcionarioManagedBean.funcionario.dataNascimento}">
-					<c:convertDateTime type="date" locale="pt_BR" />
-				</p:inputText>
+				<p:inputMask
+					value="#{funcionarioManagedBean.funcionario.dataNascimento}" mask="99/99/9999" >
+					<c:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy" />
+				</p:inputMask>
 				<p:outputLabel for="cargo" value="Cargo: " />
 				<p:selectOneMenu id="cargo"
 					value="#{funcionarioManagedBean.funcionario.cargo}" effect="fold"
