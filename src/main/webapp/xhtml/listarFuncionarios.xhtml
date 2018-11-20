@@ -16,8 +16,9 @@
 			<p:panel header="LISTA DE FUNCIONARIOS">
 
 				<p:dataTable emptyMessage="Nenhum registro encontrado"
-					paginator="true" value="#{funcionarioManagedBean.aListaFuncionarios}"
-					var="func" rows="5">
+					paginator="true"
+					value="#{funcionarioManagedBean.aListaFuncionarios}" var="func"
+					rows="5">
 					<p:column headerText="Nome" sortBy="#{func.nome}"
 						filterBy="#{func.nome}">
 						<h:outputText value="#{func.nome}" />
@@ -49,10 +50,22 @@
 						<h:outputText value="#{func.endereco.CEP}" />
 					</p:column>
 					<p:column headerText="Ações">
-						<p:commandButton icon="ui-icon-trash" value="Deletar" />
-						<p:commandButton icon="ui-icon-pencil"  value="Alterar"/>
+						<p:commandButton icon="ui-icon-trash" actionListener="#func.excluir">
+							<p:confirm header="Confirmação"
+								message="Deseja exluir esse item?" icon="ui-icon-alert"/>
+								<c:attribute name="excluir" value="#{func}" />
+						</p:commandButton>
+						<br></br>
+						<p:commandButton icon="ui-icon-pencil"
+							action="#{funcionarioManagedBean.alterar}"></p:commandButton>
 					</p:column>
 				</p:dataTable>
+				<p:confirmDialog global="true">
+					<p:commandButton value="SIM" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check"></p:commandButton>
+					<p:commandButton value="NAO" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close"></p:commandButton>
+				</p:confirmDialog>
 			</p:panel>
 		</h:form>
 	</center>

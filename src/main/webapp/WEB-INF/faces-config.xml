@@ -53,5 +53,14 @@ facesconfig_2_2.xsd"
 		</navigation-case>
 	</navigation-rule>
 	
+		<navigation-rule>
+		<from-view-id>/xhtml/listarFuncionarios.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/xhtml/alterarFuncionario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
 </faces-config>
 
