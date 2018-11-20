@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import projeto.model.Fachada.Fachada;
 import projeto.model.entity.Endereco;
@@ -66,7 +68,7 @@ public class FuncionarioManagedBean{
 		if (this.funcionario.getCPF() == null || this.funcionario.getCPF() == "") {
 			throw new CampoNaoInformadoException("CPF");
 		}
-		if (ValidaCPF.isCPF(this.funcionario.getCPF())) {
+		if (!ValidaCPF.isCPF(this.funcionario.getCPF())) {
 			throw new CpfInvalidoException();
 		}
 		
@@ -75,7 +77,8 @@ public class FuncionarioManagedBean{
 		
 		}
 		catch(Exception e) {
-			erro = e.getMessage();
+			FacesContext context = FacesContext.getCurrentInstance();  
+	         context.addMessage(null, new FacesMessage(e.getMessage()));
 			resultado = RetornoManagedBean.ERRO;
 		}
 		return resultado;
