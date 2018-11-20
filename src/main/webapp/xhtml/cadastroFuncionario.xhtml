@@ -31,7 +31,7 @@
 				<p:outputLabel for="cargo" value="Cargo: " />
 				<p:selectOneMenu id="cargo"
 					value="#{funcionarioManagedBean.funcionario.cargo}" effect="fold"
-					editable="true" required="true">
+					editable="true">
 					<c:selectItem itemLabel="Escolha um Cargo" itemValue=""
 						noSelectionOption="true" />
 					<c:selectItem itemLabel="DIRETOR" itemValue="DIRETOR" />
@@ -42,29 +42,29 @@
 						itemValue="IMPRESSO_GRAFICO" />
 				</p:selectOneMenu>
 				<p:outputLabel value="Salario:" />
-				<p:inputText value="#{funcionarioManagedBean.funcionario.salario}" required="true"></p:inputText>
+				<p:inputText value="#{funcionarioManagedBean.funcionario.salario}"></p:inputText>
 
 				<p:outputLabel value="Senha:" />
-				<p:password required="true" value="#{funcionarioManagedBean.funcionario.senha}"></p:password>
+				<p:password value="#{funcionarioManagedBean.funcionario.senha}"></p:password>
 
 				<p:outputLabel value="Rua:" />
-				<p:inputText required="true"
+				<p:inputText
 					value="#{funcionarioManagedBean.funcionario.endereco.logradouro}"></p:inputText>
 
 				<p:outputLabel value="Numero:" />
-				<p:inputText required="true"
+				<p:inputText
 					value="#{funcionarioManagedBean.funcionario.endereco.numero}"></p:inputText>
 
 				<p:outputLabel value="Bairro:" />
-				<p:inputText required="true"
+				<p:inputText
 					value="#{funcionarioManagedBean.funcionario.endereco.bairro}"></p:inputText>
 
 				<p:outputLabel value="Cidade:" />
-				<p:inputText required="true"
+				<p:inputText
 					value="#{funcionarioManagedBean.funcionario.endereco.cidade}"></p:inputText>
 
 				<p:outputLabel value="CEP:" />
-				<p:inputText required="true"
+				<p:inputText
 					value="#{funcionarioManagedBean.funcionario.endereco.CEP}"></p:inputText>
 
 				<p:growl id="growl" life="2000" />
