@@ -1,91 +1,47 @@
+
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:c="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Vendas</title>
+	<title>Cadastro OS</title>
 </h:head>
 <h:body>
-	<p:growl id="mensagem" />
+	<f:include src="menu.xhtml" />
+	<center>
+		<p:growl id="messages" />
+		<h:form>
+			<p:panel header="CADASTRO DE SERVIÇOS">
+			<h:panelGrid columns="2">
+					<!-- value="#{servicoManagedBean}" -->
+					<p:column headerText="Serviços">
+						<p:selectOneMenu id="tiposervico" 
+							effect="fold" editable="true">
+							<c:selectItem itemLabel="Escolha um Serviço" itemValue=""
+								noSelectionOption="true" />
+							<c:selectItem itemLabel="IMPRESSAO" itemValue="IMPRESSAO" />
+							<c:selectItem itemLabel="DUPLICATA" itemValue="DUPLICATA" />
+							<c:selectItem itemLabel="ENVELOPE" itemValue="ENVELOPE" />
+							<c:selectItem itemLabel="BRINDES" itemValue="BRINDES" />
+							<c:selectItem itemLabel="CRACHA" itemValue="CRACHA" />
+							<c:selectItem itemLabel="CERTIFICADO" itemValue="CERTIFICADO" />
+							<c:selectItem itemLabel="CATALOGO" itemValue="CATALOGO" />
+							<c:selectItem itemLabel="LIVRO" itemValue="LIVRO" />
+							<c:selectItem itemLabel="MANUAL" itemValue="MANUAL" />
+							<c:selectItem itemLabel="POSTAL" itemValue="POSTAL" />
+							<c:selectItem itemLabel="RECIBO" itemValue="RECIBO" />
+							<c:selectItem itemLabel="BANNER" itemValue="BANNER" />
+						</p:selectOneMenu>
+						<h:outputText />
+						<!-- value="#{serv.Servico.tipoServico}" -->
+					</p:column>
 
-	<h:form id="formulario">
-		<p:panel header="Serviços">
-			<p:dataTable id="tabelaServico"
-				emptyMessage="Nenhum registro encontrado." paginator="true" var="servico" rows="5">
-				<!-- value="#{servicoManagedBean.consultaGeral}" -->
+				</h:panelGrid>
 
-				<p:column headerText="Serviço" filterBy="#{servico.descricao}"
-					sortBy="#{servico.descricao}">
-					<h:outputText value="#{servico.descricao}" />
-				</p:column>
-
-				<p:column headerText="Quantidade" sortBy="#{servico.quantidade}">
-					<h:outputText value="#{servico.quantidade}" />
-				</p:column>
-
-				<p:column headerText="Preço" sortBy="#{servico.preco}">
-					<h:outputText value="#{servico.preco}">
-						<c:convertNumber locale="pt_BR" minFractionDigits="2" />
-					</h:outputText>
-				</p:column>
-
-				<p:column headerText="Opções">
-					<p:commandButton icon="ui-icon-plus"
-						actionListener="#{vendaBean.adicionar}"
-						update=":formulario:tabelaCesta :formulario:painelFinalizacao">
-						<c:attribute name="servicoSelecionado" value="#{servico}" />
-					</p:commandButton>
-				</p:column>
-			</p:dataTable>
-		</p:panel>
-
-		<p:panel header="Cesta de Serviços">
-			<p:dataTable id="tabelaCesta"
-				emptyMessage="Nenhum registro encontrado." paginator="true" var="itemVenda" rows="5">
-				<!-- value="#{ordemServicoManagedBean.setOrdemServico}" -->
-
-				<p:column headerText="Serviço">
-					<h:outputText value="#{itemVenda.produto.descricao}" />
-				</p:column>
-
-				<p:column headerText="Preço Un.">
-					<h:outputText value="#{itemVenda.produto.preco}">
-						<c:convertNumber locale="pt_BR" minFractionDigits="2" />
-					</h:outputText>
-				</p:column>
-
-				<p:column headerText="Qtde.">
-					<h:outputText value="#{itemVenda.quantidade}" />
-				</p:column>
-
-				<p:column headerText="Preço Parcial">
-					<h:outputText value="#{itemVenda.precoParcial}">
-						<c:convertNumber locale="pt_BR" minFractionDigits="2" />
-					</h:outputText>
-				</p:column>
-
-				<p:column headerText="Opções">
-					<p:commandButton icon="ui-icon-minus"
-						actionListener="#{vendaBean.remover}"
-						update=":formulario:tabelaCesta :formulario:painelFinalizacao">
-						<c:attribute name="itemSelecionado" value="#{itemVenda}" />
-					</p:commandButton>
-				</p:column>
-			</p:dataTable>
-		</p:panel>
-
-		<p:panel header="Finalização">
-			<h:panelGrid id="painelFinalizacao" columns="3">
-				<p:outputLabel value="Total: R$" />
-				<h:outputText value="#{vendaBean.venda.precoTotal}">
-					<c:convertNumber locale="pt_BR" minFractionDigits="2" />
-				</h:outputText>
-				<p:commandButton value="Finalizar" />
-			</h:panelGrid>
-		</p:panel>
-	</h:form>
+			</p:panel>
+		</h:form>
+	</center>
 </h:body>
 </html>
