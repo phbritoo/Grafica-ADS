@@ -98,7 +98,7 @@ public class FuncionarioManagedBean{
 	}
 	
 	public void excluir(ActionEvent evento) {
-		funcionario = (Funcionario)evento.getComponent().getAttributes().get("excluir");
+		this.funcionario = (Funcionario)evento.getComponent().getAttributes().get("excluir");
 		
 		if (this.excluir() == RetornoManagedBean.EXCLUIDO) {
 			this.consultaGeral();

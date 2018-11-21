@@ -4,6 +4,9 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.event.ActionEvent;
+
+import org.omnifaces.util.Messages;
 
 import projeto.model.Fachada.Fachada;
 import projeto.model.entity.Cliente;
@@ -49,6 +52,20 @@ public class ClienteManagedBean{
 			resultado = RetornoManagedBean.INSERIDO;
 		}
 		return resultado;
+	}
+	
+	public void excluir(ActionEvent evento) {
+		this.cliente = (Cliente)evento.getComponent().getAttributes().get("excluir");
+		
+		if (this.excluir() == RetornoManagedBean.EXCLUIDO) {
+			this.consultaGeral();
+			Messages.addGlobalInfo("Removido com sucesso");
+		}
+		else
+		{
+			Messages.addGlobalInfo("Erro na exclusão");
+		}
+		
 	}
 	
 	public String excluir() {

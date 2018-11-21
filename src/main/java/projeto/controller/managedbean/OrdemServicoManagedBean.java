@@ -3,6 +3,9 @@ package projeto.controller.managedbean;
 import java.util.Collection;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.event.ActionEvent;
+
+import org.omnifaces.util.Messages;
 
 import projeto.model.Fachada.Fachada;
 import projeto.model.entity.OrdemServico;
@@ -24,6 +27,14 @@ public class OrdemServicoManagedBean {
 		this.ordemServico = pOrdemServico;
 	}
 	
+	public Collection<OrdemServico> getaColecaoOrdemServico() {
+		return aColecaoOrdemServico;
+	}
+
+	public void setaColecaoOrdemServico(Collection<OrdemServico> aColecaoOrdemServico) {
+		this.aColecaoOrdemServico = aColecaoOrdemServico;
+	}
+
 	public String inserir() {
 		String resultado = "";
 		if(this.ordemServico != null) {
@@ -31,6 +42,20 @@ public class OrdemServicoManagedBean {
 			resultado = RetornoManagedBean.INSERIDO;
 		}
 		return resultado;
+	}
+	
+	public void excluir(ActionEvent evento) {
+		this.ordemServico = (OrdemServico)evento.getComponent().getAttributes().get("excluir");
+		
+		if (this.excluir() == RetornoManagedBean.EXCLUIDO) {
+			this.consultaGeral();
+			Messages.addGlobalInfo("Removido com sucesso");
+		}
+		else
+		{
+			Messages.addGlobalInfo("Erro na exclusão");
+		}
+		
 	}
 	
 	public String excluir() {
