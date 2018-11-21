@@ -6,51 +6,86 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Cadastro OS</title>
+	<title>Vendas</title>
 </h:head>
 <h:body>
-	<f:include src="menu.xhtml" />
-	<center>
-		<h1>CADASTRO DE SERVICOS - OS</h1>
+	<p:growl id="mensagem" />
 
-		<h:form method="post">
+	<h:form id="formulario">
+		<p:panel header="Serviços">
+			<p:dataTable id="tabelaServico"
+				emptyMessage="Nenhum registro encontrado." paginator="true" var="servico" rows="5">
+				<!-- value="#{servicoManagedBean.consultaGeral}" -->
 
-			<h:panelGrid columns="2">
+				<p:column headerText="Serviço" filterBy="#{servico.descricao}"
+					sortBy="#{servico.descricao}">
+					<h:outputText value="#{servico.descricao}" />
+				</p:column>
 
-				<p:outputLabel value="Nome:" />
-				<p:inputText value="#{clienteManagedBean.cliente.nome}"></p:inputText>
+				<p:column headerText="Quantidade" sortBy="#{servico.quantidade}">
+					<h:outputText value="#{servico.quantidade}" />
+				</p:column>
 
-				<p:outputLabel value="CPF:" />
-				<p:inputText value="#{clienteManagedBean.cliente.CPF}"></p:inputText>
+				<p:column headerText="Preço" sortBy="#{servico.preco}">
+					<h:outputText value="#{servico.preco}">
+						<c:convertNumber locale="pt_BR" minFractionDigits="2" />
+					</h:outputText>
+				</p:column>
 
-				<p:outputLabel value="Nascimento:" />
-				<p:inputText value="#{clienteManagedBean.cliente.dataNascimento}">
-					<c:convertDateTime type="date" locale="pt_BR" />
-				</p:inputText>
+				<p:column headerText="Opções">
+					<p:commandButton icon="ui-icon-plus"
+						actionListener="#{vendaBean.adicionar}"
+						update=":formulario:tabelaCesta :formulario:painelFinalizacao">
+						<c:attribute name="servicoSelecionado" value="#{servico}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</p:panel>
 
-				<p:outputLabel value="Rua:" />
-				<p:inputText
-					value="#{clienteManagedBean.cliente.endereco.logradouro}"></p:inputText>
+		<p:panel header="Cesta de Serviços">
+			<p:dataTable id="tabelaCesta"
+				emptyMessage="Nenhum registro encontrado." paginator="true" var="itemVenda" rows="5">
+				<!-- value="#{ordemServicoManagedBean.setOrdemServico}" -->
 
-				<p:outputLabel value="Numero:" />
-				<p:inputText value="#{clienteManagedBean.cliente.endereco.numero}"></p:inputText>
+				<p:column headerText="Serviço">
+					<h:outputText value="#{itemVenda.produto.descricao}" />
+				</p:column>
 
-				<p:outputLabel value="Bairro:" />
-				<p:inputText value="#{clienteManagedBean.cliente.endereco.bairro}"></p:inputText>
+				<p:column headerText="Preço Un.">
+					<h:outputText value="#{itemVenda.produto.preco}">
+						<c:convertNumber locale="pt_BR" minFractionDigits="2" />
+					</h:outputText>
+				</p:column>
 
-				<p:outputLabel value="Cidade:" />
-				<p:inputText value="#{clienteManagedBean.cliente.endereco.cidade}"></p:inputText>
+				<p:column headerText="Qtde.">
+					<h:outputText value="#{itemVenda.quantidade}" />
+				</p:column>
 
-				<p:outputLabel value="CEP:" />
-				<p:inputText value="#{clienteManagedBean.cliente.endereco.CEP}"></p:inputText>
+				<p:column headerText="Preço Parcial">
+					<h:outputText value="#{itemVenda.precoParcial}">
+						<c:convertNumber locale="pt_BR" minFractionDigits="2" />
+					</h:outputText>
+				</p:column>
 
-				<p:growl id="growl" life="2000" />
-				<p:commandButton update="growl" value="Cadastrar Cliente"
-					action="#{clienteManagedBean.inserir}" style="margin-right:20px;"
-					styleClass="ui-priority-primary" />
+				<p:column headerText="Opções">
+					<p:commandButton icon="ui-icon-minus"
+						actionListener="#{vendaBean.remover}"
+						update=":formulario:tabelaCesta :formulario:painelFinalizacao">
+						<c:attribute name="itemSelecionado" value="#{itemVenda}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+
+		<p:panel header="Finalização">
+			<h:panelGrid id="painelFinalizacao" columns="3">
+				<p:outputLabel value="Total: R$" />
+				<h:outputText value="#{vendaBean.venda.precoTotal}">
+					<c:convertNumber locale="pt_BR" minFractionDigits="2" />
+				</h:outputText>
+				<p:commandButton value="Finalizar" />
 			</h:panelGrid>
-		</h:form>
-	</center>
-
+		</p:panel>
+	</h:form>
 </h:body>
 </html>
