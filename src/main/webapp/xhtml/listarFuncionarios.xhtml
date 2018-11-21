@@ -50,7 +50,7 @@
 						<h:outputText value="#{func.endereco.CEP}" />
 					</p:column>
 					<p:column headerText="Ações">
-						<p:commandButton icon="ui-icon-trash" actionListener="#func.excluir">
+						<p:commandButton icon="ui-icon-trash" actionListener="#{func.excluir}">
 							<p:confirm header="Confirmação"
 								message="Deseja exluir esse item?" icon="ui-icon-alert"/>
 								<c:attribute name="excluir" value="#{func}" />
