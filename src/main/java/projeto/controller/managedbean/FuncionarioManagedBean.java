@@ -7,6 +7,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+
+import org.omnifaces.util.Messages;
+import org.omnifaces.util.Messages.Message;
 
 import projeto.model.Fachada.Fachada;
 import projeto.model.entity.Endereco;
@@ -16,6 +20,7 @@ import projeto.model.exception.CampoNaoInformadoException;
 import projeto.model.exception.CpfInvalidoException;
 import projeto.model.exception.ObjetoNuloException;
 import projeto.model.util.RetornoManagedBean;
+
 
 @ManagedBean
 public class FuncionarioManagedBean{
@@ -89,6 +94,20 @@ public class FuncionarioManagedBean{
 			resultado = RetornoManagedBean.ERRO;
 		}
 		return resultado;
+		
+	}
+	
+	public void excluir(ActionEvent evento) {
+		funcionario = (Funcionario)evento.getComponent().getAttributes().get("excluir");
+		
+		if (this.excluir() == RetornoManagedBean.EXCLUIDO) {
+			this.consultaGeral();
+			Messages.addGlobalInfo("Removido com sucesso");
+		}
+		else
+		{
+			Messages.addGlobalInfo("Erro na exclusão");
+		}
 		
 	}
 	

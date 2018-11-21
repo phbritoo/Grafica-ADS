@@ -12,10 +12,10 @@
 	<f:include src="menu.xhtml" />
 	<center>
 		<p:growl id="messages" />
-		<h:form>
+		<h:form id="formListagemFunc">
 			<p:panel header="LISTA DE FUNCIONARIOS">
 
-				<p:dataTable emptyMessage="Nenhum registro encontrado"
+				<p:dataTable emptyMessage="Nenhum registro encontrado" id="tabela"
 					paginator="true"
 					value="#{funcionarioManagedBean.aListaFuncionarios}" var="func"
 					rows="5">
@@ -50,7 +50,8 @@
 						<h:outputText value="#{func.endereco.CEP}" />
 					</p:column>
 					<p:column headerText="Ações">
-						<p:commandButton icon="ui-icon-trash" actionListener="#{func.excluir}">
+						<p:commandButton icon="ui-icon-trash" actionListener="#{funcionarioManagedBean.excluir}"
+						update=":messages :formListagemFunc:tabela">
 							<p:confirm header="Confirmação"
 								message="Deseja exluir esse item?" icon="ui-icon-alert"/>
 								<c:attribute name="excluir" value="#{func}" />
