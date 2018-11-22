@@ -49,7 +49,7 @@
 					<p:column headerText="CEP">
 						<h:outputText value="#{func.endereco.CEP}" />
 					</p:column>
-					<p:column headerText="Ações">
+					<p:column headerText="Ação">
 						<p:commandButton icon="ui-icon-trash" actionListener="#{funcionarioManagedBean.excluir}"
 						update=":messages :formListagemFunc:tabela">
 							<p:confirm header="Confirmação"
@@ -57,8 +57,6 @@
 								<c:attribute name="excluir" value="#{func}" />
 						</p:commandButton>
 						<br></br>
-						<p:commandButton icon="ui-icon-pencil"
-							action="#{funcionarioManagedBean.alterar}"></p:commandButton>
 					</p:column>
 				</p:dataTable>
 				<p:confirmDialog global="true">
