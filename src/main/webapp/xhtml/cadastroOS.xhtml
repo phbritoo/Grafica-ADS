@@ -6,84 +6,73 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Vendas</title>
+	<title>Ordem Serviço</title>
 </h:head>
 <h:body>
-	<p:growl id="mensagem" />
+	<p:growl id="growl" />
 
-	<h:form id="formulario">
-		<p:panel header="Serviços">
-			<p:dataTable id="tabelaServico"
-				emptyMessage="Nenhum registro encontrado." paginator="true" var="servico" rows="5">
-				<!-- value="#{servicoManagedBean.consultaGeral}" -->
-
-				<p:column headerText="Serviço" filterBy="#{servico.descricao}"
-					sortBy="#{servico.descricao}">
-					<h:outputText value="#{servico.descricao}" />
-				</p:column>
-
-				<p:column headerText="Quantidade" sortBy="#{servico.quantidade}">
-					<h:outputText value="#{servico.quantidade}" />
-				</p:column>
-
-				<p:column headerText="Preço" sortBy="#{servico.preco}">
-					<h:outputText value="#{servico.preco}">
-						<c:convertNumber locale="pt_BR" minFractionDigits="2" />
-					</h:outputText>
-				</p:column>
-
-				<p:column headerText="Opções">
-					<p:commandButton icon="ui-icon-plus"
-						actionListener="#{vendaBean.adicionar}"
-						update=":formulario:tabelaCesta :formulario:painelFinalizacao">
-						<c:attribute name="servicoSelecionado" value="#{servico}" />
-					</p:commandButton>
-				</p:column>
-			</p:dataTable>
-		</p:panel>
+	<h:form id="formCadastroOS" method="post">
+		<h:panelGrid columns="2">
+			<p:outputLabel value="Código:" />
+			<h:outputText value="#{OrdemServicoManagedBean.codigoOrdemServico}"/>
+			<p:outputLabel value="CPF:" />
+			<p:inputMask mask="999.999.999-99" value="#{OrdemServicoManagedBean.ordemServico.cliente.CPF}"></p:inputMask>
+		</h:panelGrid>
 
 		<p:panel header="Cesta de Serviços">
-			<p:dataTable id="tabelaCesta"
-				emptyMessage="Nenhum registro encontrado." paginator="true" var="itemVenda" rows="5">
-				<!-- value="#{ordemServicoManagedBean.setOrdemServico}" -->
-
-				<p:column headerText="Serviço">
-					<h:outputText value="#{itemVenda.produto.descricao}" />
+			<p:dataTable id="tabelaServico"
+				emptyMessage="Nenhum serviço incluido." paginator="true" 
+				value="#{OrdemServicoManagedBean.ordemServico.servicos}"
+				var="servico" rows="5">
+				<p:column headerText="Tipo Serviço">
+					<h:outputText value="#{servico.tipoServico}" />
 				</p:column>
-
+				<p:column headerText="Quantidade">
+					<h:outputText value="#{servico.quantidade}" />
+				</p:column>
 				<p:column headerText="Preço Un.">
-					<h:outputText value="#{itemVenda.produto.preco}">
-						<c:convertNumber locale="pt_BR" minFractionDigits="2" />
-					</h:outputText>
-				</p:column>
-
-				<p:column headerText="Qtde.">
-					<h:outputText value="#{itemVenda.quantidade}" />
-				</p:column>
-
-				<p:column headerText="Preço Parcial">
-					<h:outputText value="#{itemVenda.precoParcial}">
+					<h:outputText value="#{servico.valorUnitario}">
 						<c:convertNumber locale="pt_BR" minFractionDigits="2" />
 					</h:outputText>
 				</p:column>
 
 				<p:column headerText="Opções">
-					<p:commandButton icon="ui-icon-minus"
-						actionListener="#{vendaBean.remover}"
-						update=":formulario:tabelaCesta :formulario:painelFinalizacao">
-						<c:attribute name="itemSelecionado" value="#{itemVenda}" />
+					<p:commandButton icon="ui-icon-trash" actionListener="#{OrdemServicoManagedBean.excluirServico}"
+					update=":messages :formCadastroOS:tabelaServico">
+						<p:confirm header="Confirmação"
+						message="Deseja exluir esse serviço?" icon="ui-icon-alert"/>
+						<c:attribute name="excluir" value="#{servico}" />
 					</p:commandButton>
 				</p:column>
 			</p:dataTable>
+			<p:outputLabel value="Tipo Serviço" />
+			<p:inputText  value="#{OrdemServicoManagedBean.servico.tipoServico}"/><br></br>
+			<p:outputLabel value="Quantidade" />
+			<p:inputText  value="#{OrdemServicoManagedBean.servico.quantidade}"/><br></br>
+			<p:outputLabel value="Preço Un." />
+			<p:inputText  value="#{OrdemServicoManagedBean.servico.valorUnitario}"/><br></br>
+			<p:commandButton update=":formCadastroOS:tabelaServico" value="Incluir Serviço"
+					action="#{OrdemServicoManagedBean.IncluirServico}"
+					style="margin-right:20px;" styleClass="ui-priority-primary" />
 		</p:panel>
+		
+		<p:confirmDialog global="true">
+			<p:commandButton value="SIM" type="button"
+				styleClass="ui-confirmdialog-yes" icon="ui-icon-check"></p:commandButton>
+			<p:commandButton value="NAO" type="button"
+				styleClass="ui-confirmdialog-no" icon="ui-icon-close"></p:commandButton>
+		</p:confirmDialog>
 
 		<p:panel header="Finalização">
 			<h:panelGrid id="painelFinalizacao" columns="3">
 				<p:outputLabel value="Total: R$" />
-				<h:outputText value="#{vendaBean.venda.precoTotal}">
+				<h:outputText value="#{OrdemServicoManagedBean.totalOrdemServico}">
 					<c:convertNumber locale="pt_BR" minFractionDigits="2" />
 				</h:outputText>
-				<p:commandButton value="Finalizar" />
+				<br></br>
+				<p:commandButton update="growl" value="Incluir OS"
+					action="#{OrdemServicoManagedBean.inserir}"
+					style="margin-right:20px;" styleClass="ui-priority-primary" />
 			</h:panelGrid>
 		</p:panel>
 	</h:form>

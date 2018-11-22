@@ -9,12 +9,15 @@ import org.omnifaces.util.Messages;
 
 import projeto.model.Fachada.Fachada;
 import projeto.model.entity.OrdemServico;
+import projeto.model.entity.Servico;
 import projeto.model.util.RetornoManagedBean;
 
 @ManagedBean
 public class OrdemServicoManagedBean {
 	private OrdemServico ordemServico;
 	private Collection<OrdemServico> aColecaoOrdemServico;
+	private Servico servico;
+	private double totalOrdemServico = 0;
 
 	public OrdemServico getFuncionario() {
 		if (this.ordemServico == null) {
@@ -33,6 +36,23 @@ public class OrdemServicoManagedBean {
 
 	public void setaColecaoOrdemServico(Collection<OrdemServico> aColecaoOrdemServico) {
 		this.aColecaoOrdemServico = aColecaoOrdemServico;
+	}
+	
+
+	public Servico getServico() {
+		return servico;
+	}
+
+	public void setServico(Servico servico) {
+		this.servico = servico;
+	}
+
+	public double getTotalOrdemServico() {
+		return totalOrdemServico;
+	}
+
+	public void setTotalOrdemServico(double totalOrdemServico) {
+		this.totalOrdemServico = totalOrdemServico;
 	}
 
 	public String inserir() {
@@ -90,5 +110,19 @@ public class OrdemServicoManagedBean {
 		
 		return RetornoManagedBean.CONSULTAR;
 		
+	}
+	
+	public void TotalOrdemSevico() {
+		if(this.ordemServico != null) {
+			this.totalOrdemServico = Fachada.getFachada().valorTotalOrdemServico(ordemServico);
+		}
+	}
+	
+	public void IncluirServico() {
+		this.ordemServico.getServicos().add(this.servico);
+	}
+	
+	public void excluirServico() {
+		this.ordemServico.getServicos().remove(this.servico);
 	}
 }
