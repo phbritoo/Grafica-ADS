@@ -6,42 +6,45 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Lista de OS</title>
+	<title>Listar OS</title>
 </h:head>
 <h:body>
 	<f:include src="menu.xhtml" />
 	<center>
 		<p:growl id="messages" />
-		<h:form>
-			<p:panel header="LISTA DE SERVICOS - OS">
+		<h:form id="formListagemOS">
+			<p:panel header="LISTA DE SERVIÇOS">
 
-				<p:dataTable emptyMessage="Nenhum registro encontrado"
-					paginator="true" value="#{FuncionarioManagedBean.cosultarGeral}"
-					var="func" rows="5">
-					<p:column headerText="Nome" sortBy="#{func.nome}"
-						filterBy="#{func.nome}">
-						<h:outputText value="#{func.nome}" />
+				<p:dataTable emptyMessage="Nenhum registro encontrado" id="tabela"
+					paginator="true"
+					value="#{ordemServicoManagedBean.aColecaoOrdemServico}" var="os"
+					rows="5">
+					<p:column headerText="OS" sortBy="#{os.cliente.cpf}"
+						filterBy="#{os.cliente.cpf}">
+						<h:outputText value="#{os.cliente.cpf}" />
 					</p:column>
-					<p:column headerText="CPF" sortBy="#{func.cpf}"
-						filterBy="#{func.cpf}">
-						<h:outputText value="#{func.nome}" />
+					<p:column headerText="Quantidade" sortBy="#{os.codigoOrdemServico}"
+						filterBy="#{os.codigoOrdemServio}">
+						<h:outputText value="#{os.codigoOrdemServio}" />
 					</p:column>
-					<p:column headerText="Data de Nascimento">
-						<h:outputText value="#{func.dataNascimento}" />
+					
+					<p:column headerText="Ação">
+						<p:commandButton icon="ui-icon-trash"
+							actionListener="#{ordemServicoManagedBean.excluir}"
+							update=":messages :formListagemOS:tabela">
+							<p:confirm header="Confirmação"
+								message="Deseja cancelar esse Serviço?" icon="ui-icon-alert" />
+							<c:attribute name="excluir" value="#{os}" />
+						</p:commandButton>
+						<br></br>
 					</p:column>
-
-					<p:column headerText="Cargo">
-						<h:outputText value="#{func.cargo}" />
-					</p:column>
-					<p:column headerText="Salario">
-						<h:outputText value="#{func.salario}" />
-					</p:column>
-					<p:column headerText="Ações">
-						<p:commandButton icon="ui-icon-trash" value="Deletar" />
-						<p:commandButton icon="ui-icon-pencil"  value="Alterar"/>
-					</p:column>
-
 				</p:dataTable>
+				<p:confirmDialog global="true">
+					<p:commandButton value="SIM" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check"></p:commandButton>
+					<p:commandButton value="NAO" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close"></p:commandButton>
+				</p:confirmDialog>
 			</p:panel>
 		</h:form>
 	</center>
