@@ -1,58 +1,16 @@
-
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:c="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<<<<<<< HEAD
-	<title>Cadastro OS</title>
-=======
 	<title>Ordem Serviço</title>
->>>>>>> refs/heads/devHenrique
 </h:head>
 <h:body>
-<<<<<<< HEAD
-	<f:include src="menu.xhtml" />
-	<center>
-		<p:growl id="messages" />
-		<h:form>
-			<p:panel header="CADASTRO DE SERVIÇOS">
-			<h:panelGrid columns="2">
-					<!-- value="#{servicoManagedBean}" -->
-					<p:column headerText="Serviços">
-						<p:selectOneMenu id="tiposervico" 
-							effect="fold" editable="true">
-							<c:selectItem itemLabel="Escolha um Serviço" itemValue=""
-								noSelectionOption="true" />
-							<c:selectItem itemLabel="IMPRESSAO" itemValue="IMPRESSAO" />
-							<c:selectItem itemLabel="DUPLICATA" itemValue="DUPLICATA" />
-							<c:selectItem itemLabel="ENVELOPE" itemValue="ENVELOPE" />
-							<c:selectItem itemLabel="BRINDES" itemValue="BRINDES" />
-							<c:selectItem itemLabel="CRACHA" itemValue="CRACHA" />
-							<c:selectItem itemLabel="CERTIFICADO" itemValue="CERTIFICADO" />
-							<c:selectItem itemLabel="CATALOGO" itemValue="CATALOGO" />
-							<c:selectItem itemLabel="LIVRO" itemValue="LIVRO" />
-							<c:selectItem itemLabel="MANUAL" itemValue="MANUAL" />
-							<c:selectItem itemLabel="POSTAL" itemValue="POSTAL" />
-							<c:selectItem itemLabel="RECIBO" itemValue="RECIBO" />
-							<c:selectItem itemLabel="BANNER" itemValue="BANNER" />
-						</p:selectOneMenu>
-						<h:outputText />
-						<!-- value="#{serv.Servico.tipoServico}" -->
-					</p:column>
-=======
 	<p:growl id="growl" />
->>>>>>> refs/heads/devHenrique
 
-<<<<<<< HEAD
-				</h:panelGrid>
-
-			</p:panel>
-		</h:form>
-	</center>
-=======
 	<h:form id="formCadastroOS" method="post">
 		<h:panelGrid columns="2">
 			<p:outputLabel value="Código:" />
@@ -118,6 +76,5 @@
 			</h:panelGrid>
 		</p:panel>
 	</h:form>
->>>>>>> refs/heads/devHenrique
 </h:body>
 </html>
