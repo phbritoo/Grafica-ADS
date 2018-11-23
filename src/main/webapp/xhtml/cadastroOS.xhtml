@@ -9,20 +9,22 @@
 	<title>Ordem Serviço</title>
 </h:head>
 <h:body>
+	<f:include src="menu.xhtml" />
 	<p:growl id="growl" />
 
 	<h:form id="formCadastroOS" method="post">
 		<h:panelGrid columns="2">
 			<p:outputLabel value="Código:" />
-			<h:outputText value="#{OrdemServicoManagedBean.codigoOrdemServico}"/>
+			<h:outputText value="#{ordemServicoManagedBean.ordemServico.codigoOrdemServico}" />
 			<p:outputLabel value="CPF:" />
-			<p:inputMask mask="999.999.999-99" value="#{OrdemServicoManagedBean.ordemServico.cliente.CPF}"></p:inputMask>
+			<p:inputMask mask="999.999.999-99"
+				value="#{ordemServicoManagedBean.ordemServico.cliente.CPF}"></p:inputMask>
 		</h:panelGrid>
 
 		<p:panel header="Cesta de Serviços">
 			<p:dataTable id="tabelaServico"
-				emptyMessage="Nenhum serviço incluido." paginator="true" 
-				value="#{OrdemServicoManagedBean.ordemServico.servicos}"
+				emptyMessage="Nenhum serviço incluido." paginator="true"
+				value="#{ordemServicoManagedBean.ordemServico.servicos}"
 				var="servico" rows="5">
 				<p:column headerText="Tipo Serviço">
 					<h:outputText value="#{servico.tipoServico}" />
@@ -37,25 +39,30 @@
 				</p:column>
 
 				<p:column headerText="Opções">
-					<p:commandButton icon="ui-icon-trash" actionListener="#{OrdemServicoManagedBean.excluirServico}"
-					update=":messages :formCadastroOS:tabelaServico">
+					<p:commandButton icon="ui-icon-trash"
+						actionListener="#{ordemServicoManagedBean.excluirServico}"
+						update=":formCadastroOS:tabelaServico">
 						<p:confirm header="Confirmação"
-						message="Deseja exluir esse serviço?" icon="ui-icon-alert"/>
+							message="Deseja exluir esse serviço?" icon="ui-icon-alert" />
 						<c:attribute name="excluir" value="#{servico}" />
 					</p:commandButton>
 				</p:column>
 			</p:dataTable>
 			<p:outputLabel value="Tipo Serviço" />
-			<p:inputText  value="#{OrdemServicoManagedBean.servico.tipoServico}"/><br></br>
+			<p:inputText value="#{ordemServicoManagedBean.servico.tipoServico}" />			
+			<br></br>
 			<p:outputLabel value="Quantidade" />
-			<p:inputText  value="#{OrdemServicoManagedBean.servico.quantidade}"/><br></br>
+			<p:inputText value="#{ordemServicoManagedBean.servico.quantidade}" />
+			<br></br>
 			<p:outputLabel value="Preço Un." />
-			<p:inputText  value="#{OrdemServicoManagedBean.servico.valorUnitario}"/><br></br>
-			<p:commandButton update=":formCadastroOS:tabelaServico" value="Incluir Serviço"
-					action="#{OrdemServicoManagedBean.IncluirServico}"
-					style="margin-right:20px;" styleClass="ui-priority-primary" />
+			<p:inputText value="#{ordemServicoManagedBean.servico.valorUnitario}" />
+			<br></br>
+			<p:commandButton update=":formCadastroOS:tabelaServico"
+				value="Incluir Serviço"
+				action="#{ordemServicoManagedBean.IncluirServico}"
+				style="margin-right:20px;" styleClass="ui-priority-primary" />
 		</p:panel>
-		
+
 		<p:confirmDialog global="true">
 			<p:commandButton value="SIM" type="button"
 				styleClass="ui-confirmdialog-yes" icon="ui-icon-check"></p:commandButton>
@@ -66,12 +73,12 @@
 		<p:panel header="Finalização">
 			<h:panelGrid id="painelFinalizacao" columns="3">
 				<p:outputLabel value="Total: R$" />
-				<h:outputText value="#{OrdemServicoManagedBean.totalOrdemServico}">
+				<h:outputText value="#{ordemServicoManagedBean.totalOrdemServico}">
 					<c:convertNumber locale="pt_BR" minFractionDigits="2" />
 				</h:outputText>
 				<br></br>
 				<p:commandButton update="growl" value="Incluir OS"
-					action="#{OrdemServicoManagedBean.inserir}"
+					action="#{ordemServicoManagedBean.inserir}"
 					style="margin-right:20px;" styleClass="ui-priority-primary" />
 			</h:panelGrid>
 		</p:panel>

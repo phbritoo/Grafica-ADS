@@ -1,5 +1,6 @@
 package projeto.controller.managedbean;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.faces.bean.ManagedBean;
@@ -8,28 +9,33 @@ import javax.faces.event.ActionEvent;
 import org.omnifaces.util.Messages;
 
 import projeto.model.Fachada.Fachada;
+import projeto.model.entity.Cliente;
+import projeto.model.entity.Endereco;
 import projeto.model.entity.OrdemServico;
 import projeto.model.entity.Servico;
 import projeto.model.util.RetornoManagedBean;
 
 @ManagedBean
 public class OrdemServicoManagedBean {
-	private OrdemServico ordemServico;
-	private Collection<OrdemServico> aColecaoOrdemServico;
-	private Servico servico;
-	private double totalOrdemServico = 0;
+	OrdemServico ordemServico;
+	Collection<OrdemServico> aColecaoOrdemServico;
+	Servico servico;
+	double totalOrdemServico = 0;
 
-	public OrdemServico getFuncionario() {
+	
+	public OrdemServico getOrdemServico() {
 		if (this.ordemServico == null) {
 			this.ordemServico = new OrdemServico();
+			this.ordemServico.setCliente(new Cliente());
+			this.ordemServico.setServicos(new ArrayList<Servico>());
 		}
-		return this.ordemServico;
+		return ordemServico;
 	}
 
-	public void setOrdemServico(OrdemServico pOrdemServico) {
-		this.ordemServico = pOrdemServico;
+	public void setOrdemServico(OrdemServico ordemServico) {
+		this.ordemServico = ordemServico;
 	}
-	
+
 	public Collection<OrdemServico> getaColecaoOrdemServico() {
 		return aColecaoOrdemServico;
 	}
@@ -40,6 +46,10 @@ public class OrdemServicoManagedBean {
 	
 
 	public Servico getServico() {
+		if (this.servico == null) {
+			this.servico = new Servico();
+			this.servico.setOrdemServico(new OrdemServico());
+		}
 		return servico;
 	}
 

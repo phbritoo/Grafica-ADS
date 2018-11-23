@@ -14,8 +14,8 @@ import projeto.model.util.RetornoManagedBean;
 
 @ManagedBean
 public class ServicoManagedBean {
-	private Servico servico;
-	private Collection<Servico> aColecaoServico;
+	Servico servico;
+	Collection<Servico> aColecaoServico;
 
 	public Servico getFuncionario() {
 		if (this.servico == null) {

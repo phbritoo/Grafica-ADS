@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Lista de Clintes</title>
+	<title>Lista de Clientes</title>
 </h:head>
 <h:body>
 	<f:include src="menu.xhtml" />
@@ -16,9 +16,8 @@
 			<p:panel header="LISTA DE CLIENTES">
 
 				<p:dataTable emptyMessage="Nenhum registro encontrado" id="tabela"
-					paginator="true"
-					value="#{clienteManagedBean.aListaClientes}" var="cliente"
-					rows="5">
+					paginator="true" value="#{clienteManagedBean.aListaClientes}"
+					var="cliente" rows="5">
 					<p:column headerText="Nome" sortBy="#{cliente.nome}"
 						filterBy="#{cliente.nome}">
 						<h:outputText value="#{cliente.nome}" />
@@ -44,11 +43,12 @@
 						<h:outputText value="#{cliente.endereco.CEP}" />
 					</p:column>
 					<p:column headerText="Ação">
-						<p:commandButton icon="ui-icon-trash" actionListener="#{clienteManagedBean.excluir}"
-						update=":messages :formListagemClie:tabela">
+						<p:commandButton icon="ui-icon-trash"
+							actionListener="#{clienteManagedBean.excluir}"
+							update=":messages :formListagemClie:tabela">
 							<p:confirm header="Confirmação"
-								message="Deseja exluir esse cliente?" icon="ui-icon-alert"/>
-								<c:attribute name="excluir" value="#{cliente}" />
+								message="Deseja exluir esse cliente?" icon="ui-icon-alert" />
+							<c:attribute name="excluir" value="#{cliente}" />
 						</p:commandButton>
 					</p:column>
 				</p:dataTable>

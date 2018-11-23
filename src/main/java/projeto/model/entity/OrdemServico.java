@@ -44,6 +44,10 @@ public class OrdemServico implements Entidade, Serializable{
 		this.servicos = servicos;
 	}
 
+	public int getCodigoOrdemServico() {
+		return codigoOrdemServico;
+	}
+
 
 	public Object getPK() {
 		return this.codigoOrdemServico;

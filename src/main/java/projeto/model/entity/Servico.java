@@ -62,6 +62,10 @@ public class Servico  implements Entidade, Serializable{
 		this.ordemServico = ordemServico;
 	}
 
+	public int getCodigoServico() {
+		return codigoServico;
+	}
+
 	public Object getPK() {
 		// TODO Auto-generated method stub
 		return this.codigoServico;
